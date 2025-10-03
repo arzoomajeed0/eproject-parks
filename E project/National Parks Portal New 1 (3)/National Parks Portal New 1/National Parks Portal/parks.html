@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Featured Parks</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <style>
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', 'sans-serif';
+    }
+
+    nav
+    {
+      height: 70px;
+      color: #FFFFFF;
+      background: #2E5C2E;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 50px;
+      position: relative;
+    }
+
+    nav .logo
+     {
+      font-size: 1.1rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+    nav .logo img 
+    {
+      width: 35px;
+      height: 35px;
+      object-fit: contain;
+      margin-right: 2px;
+    }
+    nav .logo span 
+    {
+      font-size: larger;
+      font-weight: bold;
+      font-family: 'Poppins', sans-serif; 
+    }
+    
+    nav ul
+    {
+      display: flex;
+      list-style: none;
+      align-items: center;
+    }
+    
+    nav ul li
+    {
+      margin: 0 7px;
+      position: relative; 
+    }
+    
+    nav ul li a
+    {
+      color:#FFFFFF ;
+      text-decoration: none;
+      font-size: medium;
+      letter-spacing: 0.20px;
+      padding: 0.50px 1px;
+      display: block;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    
+    nav ul li a:hover
+    {
+      background-color: rgb(120, 160, 120);
+      border-bottom: 3px #FFD700 ;
+      color: #FFD700;
+    }
+
+   
+    .dropdown-menu 
+    {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #f1f8e9;
+      border-radius: 8px;
+      min-width: 250px;
+      padding: 8px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      z-index: 2000;
+      margin-top: 5px;
+    }
+    
+    .dropdown-menu li {
+      width: 100%;
+    }
+    
+    .dropdown-menu a 
+    {
+      padding: 10px 20px;
+      color:#2E5C2E ;
+      text-decoration: none;
+      transition: all 0.3s;
+      border-bottom: 1px solid #e8f5e8;
+    }
+    
+    .dropdown-menu a:hover 
+    {
+      background: #c8e6c9;
+      color: #1b5e20;
+    }
+
+   
+ .dropdown.open .dropdown-menu 
+ {
+  display: flex; 
+}
+
+    
+    nav ul li.dropdown a::after {
+      content: "▾";
+      margin-left: 5px;
+      font-size: 12px;
+      transition: transform 0.3s;
+    }
+    
+    nav ul li.dropdown:hover a::after {
+      transform: rotate(180deg);
+    }
+    
+    .hamburger 
+    {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 5px;
+    }
+    
+    .hamburger span 
+    {
+      width: 25px;
+      height: 3px;
+      background: white;
+      border-radius: 3px;
+      transition: 0.3s;
+    }
+
+
+    @media (max-width: 400px) 
+    {
+    .hero h1 
+    {
+    font-size: 2rem; 
+  }
+    .card 
+    {
+    width: 100%; 
+  }
+  nav ul 
+  {
+    width: 220px; 
+  }
+}
+
+    @media (max-width: 768px) 
+    {
+  nav {
+    padding: 0 20px;
+  }
+  
+  nav ul 
+  {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #2E5C2E;
+    flex-direction: column;
+    width: 280px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 3000;
+  }
+  
+  nav ul.show 
+  {
+    display: flex;
+  }
+  
+  nav ul li 
+  {
+    width: 100%;
+    margin: 5px 0;
+  }
+  
+  nav ul li a 
+  {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    text-align: left;
+    color: white;
+  }
+  
+  
+  .dropdown-menu 
+  {
+    position: static;
+    display: none;
+    background: #2E5C2E;  
+    box-shadow: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;           
+  }
+  
+  .dropdown-menu li a 
+  {
+    padding: 12px 20px;
+    color: white;
+    font-weight: 500;
+  }
+  
+  .dropdown.open .dropdown-menu 
+  {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  nav ul li:hover .dropdown-menu 
+  {
+    display: none; 
+  }
+  
+  .hamburger 
+  {
+    display: flex;
+  }
+  .hamburger:hover 
+  {
+    background-color: rgb(120, 160, 120);
+  }
+  
+  .logo span 
+  {
+    font-size: large;
+  }
+  
+  .logo img 
+  {
+    width: 30px;
+    height: 30px;
+  }
+}
+   
+    .parks 
+    {
+      padding: 40px;
+      text-align: center;
+      background: #f9f9f9;
+    }
+    .parks h2 
+    {
+      margin-bottom: 20px;
+      color: darkgreen;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+    .park-cards 
+    {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+    .park-card 
+    {
+      background: white;
+      padding: 20px;
+      width: 350px;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+    .park-card:hover 
+    {
+      transform: scale(1.05);
+    }
+    .park-card img 
+    {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .park-card h3
+     {
+      margin: 10px 0;
+      color: darkgreen;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+    .park-card p 
+    {
+      font-weight: bold;
+      color: #333;
+      font-family: 'Poppins', sans-serif;
+    }
+    .park-card a 
+    {
+      display: inline-block;
+      margin-top: 10px;
+      background: #4caf50;
+      color: white;
+      padding: 8px 15px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .park-card a:hover 
+    {
+      background: #388e3c;
+      transform: scale(1.1);
+    }
+
+
+    footer 
+    {
+  background: #2E5C2E;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-container 
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: auto;
+  gap: 30px;
+}
+
+.footer-col h3,
+.footer-col h4 
+{
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: #FFD700; 
+}
+
+.footer-col ul 
+{
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li 
+{
+  margin: 8px 0;
+}
+
+.footer-col ul li a 
+{
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-col ul li a:hover 
+{
+  color: #FFD700;
+}
+
+footer p 
+{
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+@media (max-width: 400px)
+ {
+  footer 
+  {
+    padding: 20px 10px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .footer-col 
+  {
+    width: 100%;
+  }
+
+  .footer-col h3,
+  .footer-col h4 
+  {
+    font-size: 1rem;
+  }
+
+  .footer-col ul li a 
+  {
+    font-size: 0.9rem;
+  }
+
+  footer p {
+    font-size: 0.8rem;
+  }
+}
+
+
+
+@media (max-width: 768px) 
+{
+  .footer-container 
+  {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+    
+  </style>
+</head>
+<body>
+ 
+  <nav>
+    <div class="logo">
+      <img src="Logo/pngwing.com (8).png" alt="National Parks Logo">
+      <span>National Parks Info</span>
+    </div>
+
+    <ul id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+
+
+      <li class="dropdown">
+        <a href="parks.html" onclick="toggleParksDropdown(event)">Parks</a>
+        <ul class="dropdown-menu">
+          <li><a href="ayubpark.html">Ayub National Park</a></li>
+          <li><a href="kirtharpark.html">Kirthar National Park</a></li>
+          <li><a href="khunjerabpark.html">Khunjerab National Park</a></li>
+          <li><a href="lalsuhanrapark.html">Lal Suhanra National Park</a></li>
+          <li><a href="ayubiapark.html">Ayubia National Park</a></li>
+        </ul>
+      </li>
+      <li><a href="animals.html">Animals</a></li>
+      <li><a href="birds.html">Birds</a></li>
+      <li><a href="sitemap.html">Site Map</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <section class="parks">
+    <h2>Featured Parks</h2>
+    <div class="park-cards">
+      <div class="park-card">
+        <img src="Images/Ayub National Park.jpg" alt="Ayub National Park">
+        <h3>Ayub National Park</h3>
+        <p>A zoo haven in Rawalpindi, home to Common Leopards and Indian Peafowl.</p>
+        <a href="ayubpark.html">Explore Park</a>
+      </div>
+      <div class="park-card">
+        <img src="Images/Kirthar_park (1).jpg" alt="Kirthar National Park">
+        <h3>Kirthar National Park</h3>
+        <p>Sindh’s rugged wilderness, protecting Sindh Ibex and Striped Hyenas.</p>
+        <a href="kirtharpark.html">Explore Park</a>
+      </div>
+      <div class="park-card">
+        <img src="Images/Khunjerab National Park.jpg" alt="Khunjerab National Park">
+        <h3>Khunjerab National Park</h3>
+        <p>High-altitude sanctuary for Snow Leopards , Marco Polo Sheep and pika.</p>
+        <a href="khunjerabpark.html">Explore Park</a>
+      </div>
+      <div class="park-card">
+        <img src="Images/Lal Suhanra National-Park-Enterance.jpg" alt="Lal Suhanra National Park">
+        <h3>Lal Suhanra National Park</h3>
+        <p>Desert oasis with Blackbuck, Indian Porcupines, and Patisar Lake.</p>
+        <a href="lalsuhanrapark.html">Explore Park</a>
+      </div>
+      <div class="park-card">
+        <img src="Images/Ayubia Natioanal park.jpg" alt="Ayubia National Park">
+        <h3>Ayubia National Park</h3>
+        <p>Abbottabad green escape, home to Rhesus Macaques and Barking Deer.</p>
+        <a href="ayubiapark.html">Explore Park</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3>National Parks Info</h3>
+      <p>Project Of National Park Info</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Info Pages</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="parks.html">Parks</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Animals And Birds</h4>
+      <ul>
+        <li><a href="animals.html">Animals</a></li>
+        <li><a href="birds.html">Birds</a></li>
+        
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Explore Parks</h4>
+      <ul>
+        <li><a href="lalsuhanrapark.html">Lal Suhanra Park</a></li>
+        <li><a href="ayubpark.html">Ayub National Park</a></li>
+        <li><a href="kirtharpark.html">Kirthar National Park</a></li>
+        <li><a href="ayubiapark.html">Ayubia National Park</a></li>
+        <li><a href="khunjerabpark.html">Khunjerab National Park</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  <script>
+function toggleParksDropdown(event) 
+{
+  event.preventDefault();
+  const dropdown = event.target.closest('.dropdown');
+  dropdown.classList.toggle('open');
+}
+</script>
+
+
+   <script>
+    function toggleMenu() 
+    {
+      const menu = document.getElementById("menu");
+      menu.classList.toggle("show");
+    }
+  </script>
+</body>
+</html>

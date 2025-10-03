@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayub National Park - Animals</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', 'sans-serif';
+    }
+
+    nav
+    {
+      height: 70px;
+      color: #FFFFFF;
+      background: #2E5C2E;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 50px;
+      position: relative;
+    }
+
+    nav .logo
+     {
+      font-size: 1.1rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+    nav .logo img 
+    {
+      width: 35px;
+      height: 35px;
+      object-fit: contain;
+      margin-right: 2px;
+    }
+    nav .logo span 
+    {
+      font-size: larger;
+      font-weight: bold;
+      font-family: 'Poppins', sans-serif; 
+    }
+    
+    nav ul
+    {
+      display: flex;
+      list-style: none;
+      align-items: center;
+    }
+    
+    nav ul li
+    {
+      margin: 0 7px;
+      position: relative; 
+    }
+    
+    nav ul li a
+    {
+      color:#FFFFFF ;
+      text-decoration: none;
+      font-size: medium;
+      letter-spacing: 0.20px;
+      padding: 0.50px 1px;
+      display: block;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    
+    nav ul li a:hover
+    {
+      background-color: rgb(120, 160, 120);
+      border-bottom: 3px #FFD700 ;
+      color: #FFD700;
+    }
+
+   
+    .dropdown-menu 
+    {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #f1f8e9;
+      border-radius: 8px;
+      min-width: 250px;
+      padding: 8px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      z-index: 2000;
+      margin-top: 5px;
+    }
+    
+    .dropdown-menu li {
+      width: 100%;
+    }
+    
+    .dropdown-menu a 
+    {
+      padding: 10px 20px;
+      color:#2E5C2E ;
+      text-decoration: none;
+      transition: all 0.3s;
+      border-bottom: 1px solid #e8f5e8;
+    }
+    
+    .dropdown-menu a:hover 
+    {
+      background: #c8e6c9;
+      color: #1b5e20;
+    }
+
+   
+ .dropdown.open .dropdown-menu 
+ {
+  display: flex; 
+}
+
+    
+    nav ul li.dropdown a::after {
+      content: "▾";
+      margin-left: 5px;
+      font-size: 12px;
+      transition: transform 0.3s;
+    }
+    
+    nav ul li.dropdown:hover a::after {
+      transform: rotate(180deg);
+    }
+    
+    .hamburger 
+    {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 5px;
+    }
+    
+    .hamburger span 
+    {
+      width: 25px;
+      height: 3px;
+      background: white;
+      border-radius: 3px;
+      transition: 0.3s;
+    }
+
+@media (max-width: 400px) 
+{
+  .hero h1 
+{
+    font-size: 2rem; 
+  }
+  .card 
+{
+    width: 100%; 
+  }
+  nav ul 
+{
+    width: 220px; 
+  }
+}
+
+    @media (max-width: 768px) 
+    {
+  nav {
+    padding: 0 20px;
+  }
+  
+  nav ul 
+  {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #2E5C2E;
+    flex-direction: column;
+    width: 280px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 3000;
+  }
+  
+  nav ul.show 
+  {
+    display: flex;
+  }
+  
+  nav ul li 
+  {
+    width: 100%;
+    margin: 5px 0;
+  }
+  
+  nav ul li a 
+  {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    text-align: left;
+    color: white;
+  }
+  
+  
+  .dropdown-menu 
+  {
+    position: static;
+    display: none;
+    background: #2E5C2E;  
+    box-shadow: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;           
+  }
+  
+  .dropdown-menu li a 
+  {
+    padding: 12px 20px;
+    color: white;
+    font-weight: 500;
+  }
+  
+  .dropdown.open .dropdown-menu 
+  {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  nav ul li:hover .dropdown-menu 
+  {
+    display: none; 
+  }
+  
+  .hamburger 
+  {
+    display: flex;
+  }
+  .hamburger:hover 
+  {
+    background-color: rgb(120, 160, 120);
+  }
+  
+  .logo span 
+  {
+    font-size: large;
+  }
+  
+  .logo img 
+  {
+    width: 30px;
+    height: 30px;
+  }
+}
+  
+    .animals 
+    {
+      padding: 40px;
+      text-align: center;
+      background: #f9f9f9;
+    }
+    .animals h2 
+    {
+      margin-bottom: 20px;
+      color: #2E5C2E;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+    .animal-cards 
+    {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+    .animal-card
+     {
+      background: white;
+      padding: 20px;
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+    .animal-card:hover 
+    {
+      transform: scale(1.05);
+    }
+    .animal-card img 
+    {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .animal-card h3 
+    {
+      margin: 10px 0;
+      color: #2e7d32;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+    .animal-card p 
+    {
+      font-weight: bold;
+      color: #333;
+      font-family: 'Poppins', sans-serif;
+    }
+    .animal-card a 
+    {
+      display: inline-block;
+      margin-top: 10px;
+      background: #4caf50;
+      color: white;
+      padding: 8px 15px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.3s;
+      cursor: pointer;
+    }
+    .animal-card a:hover 
+    {
+      background: #388e3c;
+      transform: scale(1.1);
+    }
+
+    .modal
+    {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .animal-cards, .reptile-cards 
+    {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+    .animal-card, .reptile-card
+     {
+      background: white;
+      padding: 20px;
+      width: 100%;
+      max-width: 300px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-content h3 
+    {
+      color: #2e7d32;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .modal-content
+     {
+      background: white;
+      padding: 20px;
+      max-width: 600px;
+      width: 90%;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      text-align: center;
+      position: relative;
+      font-family: 'Poppins', sans-serif;
+      
+    }
+    .modal-content img 
+    {
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .modal-content p 
+    {
+      color: #333;
+      margin-bottom: 15px;
+    }
+    .modal-content .close-btn 
+    {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.5rem;
+      color: #333;
+      cursor: pointer;
+    }
+    .modal-content .close-btn:hover 
+    {
+      color: #4caf50;
+    }
+
+     footer {
+  background: #2E5C2E;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-container 
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: auto;
+  gap: 30px;
+}
+
+.footer-col h3,
+.footer-col h4 
+{
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: #FFD700; 
+}
+
+.footer-col ul 
+{
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li 
+{
+  margin: 8px 0;
+}
+
+.footer-col ul li a 
+{
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-col ul li a:hover 
+{
+  color: #FFD700;
+}
+
+footer p {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+@media (max-width: 400px)
+ {
+  footer 
+  {
+    padding: 20px 10px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .footer-col 
+  {
+    width: 100%;
+  }
+
+  .footer-col h3,
+  .footer-col h4 
+  {
+    font-size: 1rem;
+  }
+
+  .footer-col ul li a 
+  {
+    font-size: 0.9rem;
+  }
+
+  footer p {
+    font-size: 0.8rem;
+  }
+}
+
+
+@media (max-width: 768px) 
+{
+  .footer-container 
+  {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+  </style>
+</head>
+<body>
+  
+<nav>
+    <div class="logo">
+      <a href="index.html">
+      <img src="Logo/pngwing.com (8).png" alt="National Parks Logo">
+      </a>
+      <span>National Parks Info</span>
+    </div>
+
+    <ul id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+
+
+      <li class="dropdown">
+        <a href="parks.html" onclick="toggleParksDropdown(event)">Parks</a>
+        <ul class="dropdown-menu">
+          <li><a href="ayubpark.html">Ayub National Park</a></li>
+          <li><a href="kirtharpark.html">Kirthar National Park</a></li>
+          <li><a href="khunjerabpark.html">Khunjerab National Park</a></li>
+          <li><a href="lalsuhanrapark.html">Lal Suhanra National Park</a></li>
+          <li><a href="ayubiapark.html">Ayubia National Park</a></li>
+        </ul>
+      </li>
+         
+      <li><a href="animals.html">Animals</a></li>
+      <li><a href="birds.html">Birds</a></li>
+      <li><a href="sitemap.html">Site Map</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <section class="animals">
+    <h2>Animals of Ayub National Park</h2>
+    <div class="animal-cards">
+      <div class="animal-card">
+        <img src="Images/leapordauybia.jpg" alt="Common Leopard">
+        <h3>Common Leopard</h3>
+        <p>Common Leopards in Ayub’s zoo are apex predators, known for stealth and spotted coats, hunting mammals.</p>
+        <a onclick="showAnimalDetails('Common Leopard')">Learn More</a>
+      </div>
+      <div class="animal-card">
+        <img src="Images/AuybiaBear.jpg" alt="Himalayan Black Bear">
+        <h3>Himalayan Black Bear</h3>
+        <p>Himalayan Black Bears in Ayub’s zoo have black fur, white chest patch, feed on berries, insects, mammals.</p>
+        <a onclick="showAnimalDetails('Himalayan Black Bear')">Learn More</a>
+      </div>
+      <div class="animal-card">
+        <img src="Images/redfoxayubia.jpg" alt="Red Fox">
+        <h3>Red Fox</h3>
+        <p>Red Foxes in Ayub’s zoo, with bushy tails, hunt small mammals, birds, insects in varied enclosures.</p>
+        <a onclick="showAnimalDetails('Red Fox')">Learn More</a>
+      </div>
+      <div class="animal-card">
+        <img src="Images/yellow-throated-marten Ayub Park.jpg" alt="Yellow-Throated Marten">
+        <h3>Yellow-Throated Marten</h3>
+        <p>Yellow-Throated Martens in Ayub’s zoo are rare, agile, hunt rodents, birds with colorful fur in zoo.</p>
+        <a onclick="showAnimalDetails('Yellow-Throated Marten')">Learn More</a>
+      </div>
+      <div class="animal-card">
+        <img src="Images/indian-muntjac Deer Ayub Park.jpg" alt="Indian Muntjac">
+        <h3>Indian Muntjac</h3>
+        <p>Indian Muntjacs in Ayub’s zoo, small deer, make barking calls, feed on grasses, leaves, fruits daily.</p>
+        <a onclick="showAnimalDetails('Indian Muntjac')">Learn More</a>
+      </div>
+      <div class="animal-card">
+        <img src="Images/Grey Goral Ayub Park.jpg" alt="Grey Goral">
+        <h3>Grey Goral</h3>
+        <p>Grey Gorals in Ayub’s zoo, goat-antelopes, navigate rocky slopes, graze on grasses, shrubs in groups.</p>
+        <a onclick="showAnimalDetails('Grey Goral')">Learn More</a>
+      </div>
+      <div class="animal-card">
+        <img src="Images/palmcavietAyubia.jpg" alt="Masked Palm Civet">
+        <h3>Masked Palm Civet</h3>
+        <p>Masked Palm Civets in Ayub’s zoo are nocturnal, climb with sharp claws, feed on fruits, small animals.</p>
+        <a onclick="showAnimalDetails('Masked Palm Civet')">Learn More</a>
+      </div>
+      <div class="animal-card">
+        <img src="Images/WILDboar Ayoubia--.jpg" alt="Indian Wild Boar">
+        <h3>Indian Wild Boar</h3>
+        <p>Indian Wild Boars in Ayub’s zoo are hardy, social, root soil, feed on roots, insects, small animals.</p>
+        <a onclick="showAnimalDetails('Indian Wild Boar')">Learn More</a>
+      </div>
+      <div class="animal-card">
+        <img src="Images/porcupine auyb .jpg" alt="Indian Porcupine">
+        <h3>Indian Porcupine</h3>
+        <p>Indian Porcupines in Ayub’s zoo are nocturnal, have sharp quills, forage for roots, tubers, bark daily.</p>
+        <a onclick="showAnimalDetails('Indian Porcupine')">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal" id="animalModal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <img id="modalImage" src="" alt="Animal">
+      <h3 id="modalTitle"></h3>
+      <p id="modalDescription"></p>
+    </div>
+  </div>
+
+  <footer>
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3>National Parks Info</h3>
+      <p>Project Of National Park Info</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Info Pages</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="parks.html">Parks</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Animals And Birds</h4>
+      <ul>
+        <li><a href="animals.html">Animals</a></li>
+        <li><a href="birds.html">Birds</a></li>
+        
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Explore Parks</h4>
+      <ul>
+        <li><a href="lalsuhanrapark.html">Lal Suhanra Park</a></li>
+        <li><a href="ayubpark.html">Ayub National Park</a></li>
+        <li><a href="kirtharpark.html">Kirthar National Park</a></li>
+        <li><a href="ayubiapark.html">Ayubia National Park</a></li>
+        <li><a href="khunjerabpark.html">Khunjerab National Park</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  <script>
+    const animalData = {
+      'Common Leopard': {
+        name: "Common Leopard",
+        image: "Images/leapordauybia.jpg",
+        description: "Common Leopards in Ayub’s zoo are apex predators, known for stealth and spotted coats, hunting mammals."
+      },
+      'Himalayan Black Bear': {
+        name: "Himalayan Black Bear",
+        image: "Images/AuybiaBear.jpg",
+        description: "Himalayan Black Bears in Ayub’s zoo have black fur, white chest patch, feed on berries, insects, mammals."
+      },
+      'Red Fox': {
+        name: "Red Fox",
+        image: "Images/redfoxayubia.jpg",
+        description: "Red Foxes in Ayub’s zoo, with bushy tails, hunt small mammals, birds, insects in varied enclosures."
+      },
+      'Yellow-Throated Marten': {
+        name: "Yellow-Throated Marten",
+        image: "Images/yellow-throated-marten Ayub Park.jpg",
+        description: "Yellow-Throated Martens in Ayub’s zoo are rare, agile, hunt rodents, birds with colorful fur in zoo."
+      },
+      'Indian Muntjac': {
+        name: "Indian Muntjac",
+        image: "Images/indian-muntjac Deer Ayub Park.jpg",
+        description: "Indian Muntjacs in Ayub’s zoo, small deer, make barking calls, feed on grasses, leaves, fruits daily."
+      },
+      'Grey Goral': {
+        name: "Grey Goral",
+        image: "Images/Grey Goral Ayub Park.jpg",
+        description: "Grey Gorals in Ayub’s zoo, goat-antelopes, navigate rocky slopes, graze on grasses, shrubs in groups."
+      },
+      'Masked Palm Civet': {
+        name: "Masked Palm Civet",
+        image: "Images/palmcavietAyubia.jpg",
+        description: "Masked Palm Civets in Ayub’s zoo are nocturnal, climb with sharp claws, feed on fruits, small animals."
+      },
+      'Indian Wild Boar': {
+        name: "Indian Wild Boar",
+        image: "Images/WILDboar Ayoubia--.jpg",
+        description: "Indian Wild Boars in Ayub’s zoo are hardy, social, root soil, feed on roots, insects, small animals."
+      },
+      'Indian Porcupine': {
+        name: "Indian Porcupine",
+        image: "Images/porcupine auyb .jpg",
+        description: "Indian Porcupines in Ayub’s zoo are nocturnal, have sharp quills, forage for roots, tubers, bark daily."
+      }
+    };
+
+    function showAnimalDetails(animalKey) {
+      const animal = animalData[animalKey];
+      document.getElementById('modalImage').src = animal.image;
+      document.getElementById('modalImage').alt = animal.name;
+      document.getElementById('modalTitle').textContent = animal.name;
+      document.getElementById('modalDescription').textContent = animal.description;
+      document.getElementById('animalModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('animalModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('animalModal');
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    };
+  </script>
+    <script>
+function toggleParksDropdown(event) 
+{
+  event.preventDefault();
+  const dropdown = event.target.closest('.dropdown');
+  dropdown.classList.toggle('open');
+}
+</script>
+
+<script>
+    function toggleMenu() 
+    {
+      const menu = document.getElementById("menu");
+      menu.classList.toggle("show");
+    }
+  </script>
+</body>
+</html>

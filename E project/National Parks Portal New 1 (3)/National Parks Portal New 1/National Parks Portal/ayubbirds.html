@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birds of Ayub National Park</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', 'sans-serif';
+    }
+
+    nav
+    {
+      height: 70px;
+      color: #FFFFFF;
+      background: #2E5C2E;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 50px;
+      position: relative;
+    }
+
+    nav .logo
+     {
+      font-size: 1.1rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+    nav .logo img 
+    {
+      width: 35px;
+      height: 35px;
+      object-fit: contain;
+      margin-right: 2px;
+    }
+    nav .logo span 
+    {
+      font-size: larger;
+      font-weight: bold;
+      font-family: 'Poppins', sans-serif; 
+    }
+    
+    nav ul
+    {
+      display: flex;
+      list-style: none;
+      align-items: center;
+    }
+    
+    nav ul li
+    {
+      margin: 0 7px;
+      position: relative; 
+    }
+    
+    nav ul li a
+    {
+      color:#FFFFFF ;
+      text-decoration: none;
+      font-size: medium;
+      letter-spacing: 0.20px;
+      padding: 0.50px 1px;
+      display: block;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    
+    nav ul li a:hover
+    {
+      background-color: rgb(120, 160, 120);
+      border-bottom: 3px #FFD700 ;
+      color: #FFD700;
+    }
+
+   
+    .dropdown-menu 
+    {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #f1f8e9;
+      border-radius: 8px;
+      min-width: 250px;
+      padding: 8px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      z-index: 2000;
+      margin-top: 5px;
+    }
+    
+    .dropdown-menu li {
+      width: 100%;
+    }
+    
+    .dropdown-menu a 
+    {
+      padding: 10px 20px;
+      color:#2E5C2E ;
+      text-decoration: none;
+      transition: all 0.3s;
+      border-bottom: 1px solid #e8f5e8;
+    }
+    
+    .dropdown-menu a:hover 
+    {
+      background: #c8e6c9;
+      color: #1b5e20;
+    }
+
+   
+ .dropdown.open .dropdown-menu 
+ {
+  display: flex; 
+}
+
+    
+    nav ul li.dropdown a::after {
+      content: "▾";
+      margin-left: 5px;
+      font-size: 12px;
+      transition: transform 0.3s;
+    }
+    
+    nav ul li.dropdown:hover a::after {
+      transform: rotate(180deg);
+    }
+    
+    .hamburger 
+    {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 5px;
+    }
+    
+    .hamburger span 
+    {
+      width: 25px;
+      height: 3px;
+      background: white;
+      border-radius: 3px;
+      transition: 0.3s;
+    }
+
+
+@media   (max-width: 400px) 
+{
+  .hero h1 
+{
+   
+  font-size: 2rem; 
+  }
+  .card 
+{
+    width: 100%; 
+  }
+  nav ul 
+{
+    width: 220px; 
+  }
+}
+
+    @media (max-width: 768px) 
+    {
+  nav {
+    padding: 0 20px;
+  }
+  
+  nav ul 
+  {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #2E5C2E;
+    flex-direction: column;
+    width: 280px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 3000;
+  }
+  
+  nav ul.show 
+  {
+    display: flex;
+  }
+  
+  nav ul li 
+  {
+    width: 100%;
+    margin: 5px 0;
+  }
+  
+  nav ul li a 
+  {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    text-align: left;
+    color: white;
+  }
+  
+  
+  .dropdown-menu 
+  {
+    position: static;
+    display: none;
+    background: #2E5C2E;  
+    box-shadow: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;           
+  }
+  
+  .dropdown-menu li a 
+  {
+    padding: 12px 20px;
+    color: white;
+    font-weight: 500;
+  }
+  
+  .dropdown.open .dropdown-menu 
+  {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  nav ul li:hover .dropdown-menu 
+  {
+    display: none; 
+  }
+  
+  .hamburger 
+  {
+    display: flex;
+  }
+  .hamburger:hover 
+  {
+    background-color: rgb(120, 160, 120);
+  }
+  
+  .logo span 
+  {
+    font-size: large;
+  }
+  
+  .logo img 
+  {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+    .birds 
+    {
+      padding: 40px;
+      text-align: center;
+      background: #f9f9f9;
+    }
+    .birds h2 
+    {
+      margin-bottom: 20px;
+      color: #2E5C2E;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+
+    .bird-cards 
+    {
+      display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 20px;
+    max-width: 1200px;
+   margin: 20px auto;
+   padding: 0 15px;
+    }
+
+    .bird-card 
+    {
+    background: white;
+    padding: 20px;
+    width: 100%;         
+    max-width: 300px; 
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+    }
+
+    .bird-card:hover 
+    {
+      transform: scale(1.05);
+    }
+    .bird-card img 
+    {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .bird-card h3 
+    {
+      margin: 10px 0;
+      color: #2e7d32;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+    .bird-card p 
+    {
+      font-weight: bold;
+      color: #333;
+      font-family: 'Poppins', sans-serif;
+    }
+    .bird-card a 
+    {
+      display: inline-block;
+      margin-top: 10px;
+      background: #4caf50;
+      color: white;
+      padding: 8px 15px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.3s;
+      cursor: pointer;
+    }
+    .bird-card a:hover 
+    {
+      background: #388e3c;
+      transform: scale(1.1);
+    }
+
+    .modal 
+    {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content 
+    {
+      background: white;
+      padding: 20px;
+      max-width: 600px;
+      width: 90%;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      text-align: center;
+      position: relative;
+      font-family: 'Poppins', sans-serif;
+    }
+    .modal-content img 
+    {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .modal-content h3 
+    {
+      color: #2e7d32;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .modal-content p 
+    {
+      color: #333;
+      margin-bottom: 15px;
+    }
+    .modal-content .close-btn 
+    {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.5rem;
+      color: #333;
+      cursor: pointer;
+    }
+    .modal-content .close-btn:hover 
+    {
+      color: #4caf50;
+    }
+
+     footer {
+  background: #2E5C2E;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-container 
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: auto;
+  gap: 30px;
+}
+
+.footer-col h3,
+.footer-col h4 
+{
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: #FFD700; 
+}
+
+.footer-col ul 
+{
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li 
+{
+  margin: 8px 0;
+}
+
+.footer-col ul li a 
+{
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-col ul li a:hover 
+{
+  color: #FFD700;
+}
+
+footer p {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+@media (max-width: 400px)
+ {
+  footer 
+  {
+    padding: 20px 10px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .footer-col 
+  {
+    width: 100%;
+  }
+
+  .footer-col h3,
+  .footer-col h4 
+  {
+    font-size: 1rem;
+  }
+
+  .footer-col ul li a 
+  {
+    font-size: 0.9rem;
+  }
+
+  footer p {
+    font-size: 0.8rem;
+  }
+}
+
+
+@media (max-width: 768px) 
+{
+  .footer-container 
+  {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+  </style>
+</head>
+<body>
+ 
+ <nav>
+    <div class="logo">
+      <a href="index.html">
+      <img src="Logo/pngwing.com (8).png" alt="National Parks Logo">
+      </a>
+      <span>National Parks Info</span>
+    </div>
+
+    <ul id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+
+
+      <li class="dropdown">
+        <a href="#" onclick="toggleParksDropdown(event)">Parks</a>
+        <ul class="dropdown-menu">
+          <li><a href="ayubpark.html">Ayub National Park</a></li>
+          <li><a href="kirtharpark.html">Kirthar National Park</a></li>
+          <li><a href="khunjerabpark.html">Khunjerab National Park</a></li>
+          <li><a href="lalsuhanrapark.html">Lal Suhanra National Park</a></li>
+          <li><a href="ayubiapark.html">Ayubia National Park</a></li>
+        </ul>
+      </li>
+      <li><a href="animals.html">Animals</a></li>
+      <li><a href="birds.html">Birds</a></li>
+      <li><a href="sitemap.html">Site Map</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+ 
+
+  <section class="birds">
+    <h2>Birds of Ayub National Park</h2>
+    <div class="bird-cards">
+      <div class="bird-card">
+        <img src="Images/peafowl peacock.jpg" alt="Peafowl (Peacock)">
+        <h3>Peafowl (Peacock)</h3>
+        <p>Vibrant peacocks with iridescent tails roam Ayub’s green spaces, stunning visitors with their displays.</p>
+        <a onclick="showBirdDetails('peafowl')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="Images/parrot.jpg" alt="Parrots">
+        <h3>Parrots</h3>
+        <p>Colorful parrots chatter in Ayub’s trees, adding lively sounds and hues to the park’s lush environment.</p>
+        <a onclick="showBirdDetails('parrots')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="Images/dove.jpg" alt="Doves">
+        <h3>Doves</h3>
+        <p>Gentle doves coo softly in Ayub’s gardens, their peaceful presence enhancing the park’s calm ambiance.</p>
+        <a onclick="showBirdDetails('doves')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="Images/whitepigeon.jpg" alt="Pigeons">
+        <h3>Pigeons</h3>
+        <p>Pigeons thrive in Ayub’s urban setting, scavenging and flocking in open areas with adaptable habits.</p>
+        <a onclick="showBirdDetails('pigeons')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="Images/eagle.jpg" alt="Eagles">
+        <h3>Eagles</h3>
+        <p>Majestic eagles soar above Ayub, their keen eyes spotting prey from the park’s forested hilltops.</p>
+        <a onclick="showBirdDetails('eagles')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="Images/falcon.jpg" alt="Falcons">
+        <h3>Falcons</h3>
+        <p>Swift falcons hunt with precision in Ayub’s skies, their speed making them top predators in the park.</p>
+        <a onclick="showBirdDetails('falcons')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="Images/owl.jpg" alt="Owls">
+        <h3>Owls</h3>
+        <p>Nocturnal owls in Ayub’s woods hunt silently at night, their hoots echoing through the quiet park.</p>
+        <a onclick="showBirdDetails('owls')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="Images/Woodpecker.jpg" alt="Woodpeckers">
+        <h3>Woodpeckers</h3>
+        <p>Woodpeckers tap on Ayub’s trees, their rhythmic pecking aiding in finding insects in the bark.</p>
+        <a onclick="showBirdDetails('woodpeckers')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="Images/WaterFowl.jpg" alt="Ducks">
+        <h3>Ducks</h3>
+        <p>Ducks paddle in Ayub’s ponds, their quacks and splashes adding life to the park’s water features.</p>
+        <a onclick="showBirdDetails('ducks')">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  
+  <div class="modal" id="birdModal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <img id="modalImage" src="" alt="Bird">
+      <h3 id="modalTitle"></h3>
+      <p id="modalDescription"></p>
+    </div>
+  </div>
+
+  
+  <footer>
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3>National Parks Info</h3>
+      <p>Project Of National Park Info</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Info Pages</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="parks.html">Parks</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Animals And Birds</h4>
+      <ul>
+        <li><a href="animals.html">Animals</a></li>
+        <li><a href="birds.html">Birds</a></li>
+        
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Explore Parks</h4>
+      <ul>
+        <li><a href="lalsuhanrapark.html">Lal Suhanra Park</a></li>
+        <li><a href="ayubpark.html">Ayub National Park</a></li>
+        <li><a href="kirtharpark.html">Kirthar National Park</a></li>
+        <li><a href="ayubiapark.html">Ayubia National Park</a></li>
+        <li><a href="khunjerabpark.html">Khunjerab National Park</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  <script>
+    const birdData = {
+      'peafowl': {
+        name: "Peafowl (Peacock)",
+        image: "Images/peafowl peacock.jpg",
+        description: "Peafowl in Ayub National Park display vibrant tails to attract mates, thriving in open grassy areas."
+      },
+      'parrots': {
+        name: "Parrots",
+        image: "Images/parrot.jpg",
+        description: "Parrots in Ayub’s lush trees squawk loudly, feeding on fruits and adding color to the park’s canopy."
+      },
+      'doves': {
+        name: "Doves",
+        image: "Images/dove.jpg",
+        description: "Doves in Ayub’s gardens coo gently, nesting in shrubs and contributing to the park’s serene vibe."
+      },
+      'pigeons': {
+        name: "Pigeons",
+        image: "Images/whitepigeon.jpg",
+        description: "Pigeons in Ayub adapt to urban life, flocking in open spaces and scavenging for food scraps daily."
+      },
+      'eagles': {
+        name: "Eagles",
+        image: "Images/eagle.jpg",
+        description: "Eagles soar over Ayub’s hills, hunting small mammals with sharp talons in the park’s wooded areas."
+      },
+      'falcons': {
+        name: "Falcons",
+        image: "Images/falcon.jpg",
+        description: "Falcons in Ayub dive swiftly to catch prey, their speed and agility dominating the park’s open skies."
+      },
+      'owls': {
+        name: "Owls",
+        image: "Images/owl.jpg",
+        description: "Owls in Ayub hunt at night, their silent flight and hoots blending into the park’s forested shadows."
+      },
+      'woodpeckers': {
+        name: "Woodpeckers",
+        image: "Images/Woodpecker.jpg",
+        description: "Woodpeckers in Ayub peck trees for insects, their drumming echoing through the park’s wooded trails."
+      },
+      'ducks': {
+        name: "Ducks",
+        image: "Images/WaterFowl.jpg",
+        description: "Ducks in Ayub’s ponds swim and dive, feeding on aquatic plants and enlivening the park’s waters."
+      }
+    };
+
+    function showBirdDetails(birdKey) {
+      console.log('Opening modal for:', birdKey);
+      const bird = birdData[birdKey];
+      if (!bird) {
+        console.error('Bird not found for key:', birdKey);
+        return;
+      }
+      const modal = document.getElementById('birdModal');
+      const modalImage = document.getElementById('modalImage');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalDescription = document.getElementById('modalDescription');
+
+      if (!modal || !modalImage || !modalTitle || !modalDescription) {
+        console.error('Modal elements not found');
+        return;
+      }
+
+      modalImage.src = bird.image;
+      modalImage.alt = bird.name;
+      modalTitle.textContent = bird.name;
+      modalDescription.textContent = bird.description;
+      modal.style.display = 'flex';
+      console.log('Modal displayed with:', bird); 
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('birdModal');
+      if (modal) {
+        modal.style.display = 'none';
+        console.log('Modal closed'); 
+      } else {
+        console.error('Modal element not found');
+      }
+    }
+
+    
+    window.onclick = function(event) {
+      const modal = document.getElementById('birdModal');
+      if (event.target === modal) {
+        modal.style.display = 'none';
+        console.log('Modal closed by clicking outside'); 
+      }
+    };
+  </script>
+
+    <script>
+function toggleParksDropdown(event) 
+{
+  event.preventDefault();
+  const dropdown = event.target.closest('.dropdown');
+  dropdown.classList.toggle('open');
+}
+</script>
+
+<script>
+    function toggleMenu() 
+    {
+      const menu = document.getElementById("menu");
+      menu.classList.toggle("show");
+    }
+  </script>  
+  
+</body>
+</html>

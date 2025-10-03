@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birds of Kirthar National Park</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', 'sans-serif';
+    }
+
+    nav
+    {
+      height: 70px;
+      color: #FFFFFF;
+      background: #2E5C2E;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 50px;
+      position: relative;
+    }
+
+    nav .logo
+     {
+      font-size: 1.1rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+    nav .logo img 
+    {
+      width: 35px;
+      height: 35px;
+      object-fit: contain;
+      margin-right: 2px;
+    }
+    nav .logo span 
+    {
+      font-size: larger;
+      font-weight: bold;
+      font-family: 'Poppins', sans-serif; 
+    }
+    
+    nav ul
+    {
+      display: flex;
+      list-style: none;
+      align-items: center;
+    }
+    
+    nav ul li
+    {
+      margin: 0 7px;
+      position: relative; 
+    }
+    
+    nav ul li a
+    {
+      color:#FFFFFF ;
+      text-decoration: none;
+      font-size: medium;
+      letter-spacing: 0.20px;
+      padding: 0.50px 1px;
+      display: block;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    
+    nav ul li a:hover
+    {
+      background-color: rgb(120, 160, 120);
+      border-bottom: 3px #FFD700 ;
+      color: #FFD700;
+    }
+
+   
+    .dropdown-menu 
+    {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #f1f8e9;
+      border-radius: 8px;
+      min-width: 250px;
+      padding: 8px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      z-index: 2000;
+      margin-top: 5px;
+    }
+    
+    .dropdown-menu li {
+      width: 100%;
+    }
+    
+    .dropdown-menu a 
+    {
+      padding: 10px 20px;
+      color:#2E5C2E ;
+      text-decoration: none;
+      transition: all 0.3s;
+      border-bottom: 1px solid #e8f5e8;
+    }
+    
+    .dropdown-menu a:hover 
+    {
+      background: #c8e6c9;
+      color: #1b5e20;
+    }
+
+   
+ .dropdown.open .dropdown-menu 
+ {
+  display: flex; 
+}
+
+    
+    nav ul li.dropdown a::after {
+      content: "▾";
+      margin-left: 5px;
+      font-size: 12px;
+      transition: transform 0.3s;
+    }
+    
+    nav ul li.dropdown:hover a::after {
+      transform: rotate(180deg);
+    }
+    
+    .hamburger 
+    {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 5px;
+    }
+    
+    .hamburger span 
+    {
+      width: 25px;
+      height: 3px;
+      background: white;
+      border-radius: 3px;
+      transition: 0.3s;
+    }
+
+@media (max-width: 400px) 
+{
+   .hero h1 
+{
+    font-size: 2rem; 
+  }
+  .card 
+{
+     width: 100%; 
+  }
+  nav ul 
+{
+    width: 220px; 
+  }
+}
+
+
+    @media (max-width: 768px) 
+    {
+  nav {
+    padding: 0 20px;
+  }
+  
+  nav ul 
+  {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #2E5C2E;
+    flex-direction: column;
+    width: 280px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 3000;
+  }
+  
+  nav ul.show 
+  {
+    display: flex;
+  }
+  
+  nav ul li 
+  {
+    width: 100%;
+    margin: 5px 0;
+  }
+  
+  nav ul li a 
+  {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    text-align: left;
+    color: white;
+  }
+  
+  
+  .dropdown-menu 
+  {
+    position: static;
+    display: none;
+    background: #2E5C2E;  
+    box-shadow: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;           
+  }
+  
+  .dropdown-menu li a 
+  {
+    padding: 12px 20px;
+    color: white;
+    font-weight: 500;
+  }
+  
+  .dropdown.open .dropdown-menu 
+  {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  nav ul li:hover .dropdown-menu 
+  {
+    display: none; 
+  }
+  
+  .hamburger 
+  {
+    display: flex;
+  }
+  .hamburger:hover 
+  {
+    background-color: rgb(120, 160, 120);
+  }
+  
+  .logo span 
+  {
+    font-size: large;
+  }
+  
+  .logo img 
+  {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+    
+    .birds 
+    {
+      padding: 40px;
+      text-align: center;
+      background: #f9f9f9;
+    }
+    .birds h2 
+    {
+      margin-bottom: 20px;
+      color: #2E5C2E;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+
+    .bird-cards 
+    {
+      display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 20px;
+    max-width: 1200px;
+   margin: 20px auto;
+   padding: 0 15px;
+    }
+
+    .bird-card 
+    {
+    background: white;
+    padding: 20px;
+    width: 100%;         
+    max-width: 300px; 
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+    }
+
+    .bird-card:hover
+     {
+      transform: scale(1.05);
+    }
+    .bird-card img 
+    {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .bird-card h3 
+    {
+      margin: 10px 0;
+      color: #2e7d32;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+    .bird-card p 
+    {
+      font-weight: bold;
+      color: #333;
+      font-family: 'Poppins', sans-serif;
+    }
+    .bird-card a 
+    {
+      display: inline-block;
+      margin-top: 10px;
+      background: #4caf50;
+      color: white;
+      padding: 8px 15px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.3s;
+      cursor: pointer;
+    }
+    .bird-card a:hover
+     {
+      background: #388e3c;
+      transform: scale(1.1);
+    }
+
+    .modal
+     {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content
+     {
+      background: white;
+      padding: 20px;
+      max-width: 600px;
+      width: 90%;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      text-align: center;
+      position: relative;
+      font-family: 'Poppins', sans-serif;
+    }
+    .modal-content img
+     {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .modal-content h3
+    {
+      color: #2e7d32;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .modal-content p 
+    {
+      color: #333;
+      margin-bottom: 15px;
+    }
+    .modal-content .close-btn 
+    {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.5rem;
+      color: #333;
+      cursor: pointer;
+    }
+    .modal-content .close-btn:hover 
+    {
+      color: #4caf50;
+    }
+
+     footer {
+  background: #2E5C2E;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-container 
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: auto;
+  gap: 30px;
+}
+
+.footer-col h3,
+.footer-col h4 
+{
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: #FFD700; 
+}
+
+.footer-col ul 
+{
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li 
+{
+  margin: 8px 0;
+}
+
+.footer-col ul li a 
+{
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-col ul li a:hover 
+{
+  color: #FFD700;
+}
+
+footer p {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+@media (max-width: 400px)
+ {
+  footer 
+  {
+    padding: 20px 10px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .footer-col 
+  {
+    width: 100%;
+  }
+
+  .footer-col h3,
+  .footer-col h4 
+  {
+    font-size: 1rem;
+  }
+
+  .footer-col ul li a 
+  {
+    font-size: 0.9rem;
+  }
+
+  footer p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) 
+{
+  .footer-container 
+  {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <a href="index.html">
+      <img src="Logo/pngwing.com (8).png" alt="National Parks Logo">
+      </a>
+      <span>National Parks Info</span>
+    </div>
+
+    <ul id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+
+
+      <li class="dropdown">
+        <a href="#" onclick="toggleParksDropdown(event)">Parks</a>
+        <ul class="dropdown-menu">
+          <li><a href="ayubpark.html">Ayub National Park</a></li>
+          <li><a href="kirtharpark.html">Kirthar National Park</a></li>
+          <li><a href="khunjerabpark.html">Khunjerab National Park</a></li>
+          <li><a href="lalsuhanrapark.html">Lal Suhanra National Park</a></li>
+          <li><a href="ayubiapark.html">Ayubia National Park</a></li>
+        </ul>
+      </li>
+      <li><a href="animals.html">Animals</a></li>
+      <li><a href="birds.html">Birds</a></li>
+      <li><a href="sitemap.html">Site Map</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+  
+  <section class="birds">
+    <h2>Birds of Kirthar National Park</h2>
+    <div class="bird-cards">
+      <div class="bird-card">
+        <img src="Images/Houbra Bustard.jpg" alt="Houbara Bustard">
+        <h3>Houbara Bustard</h3>
+        <p>Vulnerable migratory bird in Kirthar’s deserts, known for its elegant courtship displays in open terrain.</p>
+        <a onclick="showBirdDetails('houbara-bustard')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="Images/chukar patridge.jpg" alt="Chukar Partridge">
+        <h3>Chukar Partridge</h3>
+        <p>Chukar Partridges in Kirthar’s hills make loud calls, thriving in rocky areas with sparse vegetation.</p>
+        <a onclick="showBirdDetails('chukar-partridge')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="Images/Black Patridge.jpg" alt="Black Partridge">
+        <h3>Black Partridge</h3>
+        <p>Black Partridges in Kirthar’s scrublands sing at dawn, their bold plumage vibrant in the arid landscape.</p>
+        <a onclick="showBirdDetails('black-partridge')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="Images/dove.jpg" alt="Doves">
+        <h3>Doves</h3>
+        <p>Doves in Kirthar’s valleys coo softly, nesting in shrubs and adding a peaceful ambiance to the park.</p>
+        <a onclick="showBirdDetails('doves')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="Images/whitepigeon.jpg" alt="Pigeons">
+        <h3>Pigeons</h3>
+        <p>Pigeons flock in Kirthar’s open areas, scavenging food and adapting well to the park’s rugged terrain.</p>
+        <a onclick="showBirdDetails('pigeons')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="Images/eagle.jpg" alt="Eagles">
+        <h3>Eagles</h3>
+        <p>Eagles soar over Kirthar’s mountains, their sharp vision spotting prey in the park’s vast wilderness.</p>
+        <a onclick="showBirdDetails('eagles')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="Images/falcon.jpg" alt="Falcons">
+        <h3>Falcons</h3>
+        <p>Swift falcons in Kirthar hunt with precision, diving at high speeds to catch prey in open landscapes.</p>
+        <a onclick="showBirdDetails('falcons')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="Images/Vulture.jpg" alt="Vultures">
+        <h3>Vultures</h3>
+        <p>Vultures in Kirthar scavenge carrion, soaring high above the park’s rugged cliffs and arid valleys.</p>
+        <a onclick="showBirdDetails('vultures')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="Images/larks.jpg" alt="Larks">
+        <h3>Larks</h3>
+        <p>Larks in Kirthar’s grasslands sing melodious songs, blending into the arid terrain while foraging.</p>
+        <a onclick="showBirdDetails('larks')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="Images/shrikes.jpg" alt="Shrikes">
+        <h3>Shrikes</h3>
+        <p>Shrikes in Kirthar, known as butcherbirds, impale prey on thorns in the park’s thorny scrublands.</p>
+        <a onclick="showBirdDetails('shrikes')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="Images/sandgrouse.jpg" alt="Sandgrouse">
+        <h3>Sandgrouse</h3>
+        <p>Sandgrouse in Kirthar fly long distances to water, their camouflaged feathers suiting desert life.</p>
+        <a onclick="showBirdDetails('sandgrouse')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="Images/owl.jpg" alt="Owls">
+        <h3>Owls</h3>
+        <p>Owls in Kirthar hunt silently at night, their hoots echoing through the park’s rocky hills and caves.</p>
+        <a onclick="showBirdDetails('owls')">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal" id="birdModal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <img id="modalImage" src="" alt="Bird">
+      <h3 id="modalTitle"></h3>
+      <p id="modalDescription"></p>
+    </div>
+  </div>
+ <footer>
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3>National Parks Info</h3>
+      <p>Project Of National Park Info</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Info Pages</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="parks.html">Parks</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Animals And Birds</h4>
+      <ul>
+        <li><a href="animals.html">Animals</a></li>
+        <li><a href="birds.html">Birds</a></li>
+        
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Explore Parks</h4>
+      <ul>
+        <li><a href="lalsuhanrapark.html">Lal Suhanra Park</a></li>
+        <li><a href="ayubpark.html">Ayub National Park</a></li>
+        <li><a href="kirtharpark.html">Kirthar National Park</a></li>
+        <li><a href="ayubiapark.html">Ayubia National Park</a></li>
+        <li><a href="khunjerabpark.html">Khunjerab National Park</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  <script>
+    const birdData = {
+      'houbara-bustard': {
+        name: "Houbara Bustard",
+        image: "Images/Houbra Bustard.jpg",
+        description: "Houbara Bustards migrate to Kirthar’s deserts, displaying elaborate dances; vulnerable to hunting."
+      },
+      'chukar-partridge': {
+        name: "Chukar Partridge",
+        image: "Images/chukar patridge.jpg",
+        description: "Chukar Partridges thrive in Kirthar’s rocky hills, calling loudly and foraging in sparse vegetation."
+      },
+      'black-partridge': {
+        name: "Black Partridge",
+        image: "Images/Black Patridge.jpg",
+        description: "Black Partridges in Kirthar’s scrublands sing at dawn, their bold plumage vibrant in arid areas."
+      },
+      'doves': {
+        name: "Doves",
+        image: "Images/dove.jpg",
+        description: "Doves in Kirthar’s valleys coo gently, nesting in shrubs to create a peaceful park atmosphere."
+      },
+      'pigeons': {
+        name: "Pigeons",
+        image: "Images/whitepigeon.jpg",
+        description: "Pigeons adapt to Kirthar’s rugged terrain, flocking in open areas to scavenge for food daily."
+      },
+      'eagles': {
+        name: "Eagles",
+        image: "Images/eagle.jpg",
+        description: "Eagles soar over Kirthar’s mountains, hunting small mammals with keen vision in the wilderness."
+      },
+      'falcons': {
+        name: "Falcons",
+        image: "Images/falcon.jpg",
+        description: "Falcons in Kirthar dive swiftly to catch prey, their speed dominating the park’s open landscapes."
+      },
+      'vultures': {
+        name: "Vultures",
+        image: "Images/Vulture.jpg",
+        description: "Vultures scavenge carrion in Kirthar, soaring high above cliffs and valleys to maintain ecology."
+      },
+      'larks': {
+        name: "Larks",
+        image: "Images/larks.jpg",
+        description: "Larks sing melodious songs in Kirthar’s grasslands, foraging while blending into arid terrain."
+      },
+      'shrikes': {
+        name: "Shrikes",
+        image: "Images/shrikes.jpg",
+        description: "Shrikes, or butcherbirds, in Kirthar impale prey on thorns, thriving in thorny scrub landscapes."
+      },
+      'sandgrouse': {
+        name: "Sandgrouse",
+        image: "Images/sandgrouse.jpg",
+        description: "Sandgrouse fly to water in Kirthar, their camouflaged feathers aiding survival in desert areas."
+      },
+      'owls': {
+        name: "Owls",
+        image: "Images/owl.jpg",
+        description: "Owls hunt silently at night in Kirthar, their hoots echoing through rocky hills and caves."
+      }
+    };
+
+    function showBirdDetails(birdKey) {
+      console.log('Opening modal for:', birdKey);
+      const bird = birdData[birdKey];
+      if (!bird) {
+        console.error('Bird not found for key:', birdKey);
+        return;
+      }
+      const modal = document.getElementById('birdModal');
+      const modalImage = document.getElementById('modalImage');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalDescription = document.getElementById('modalDescription');
+
+      if (!modal || !modalImage || !modalTitle || !modalDescription) {
+        console.error('Modal elements not found');
+        return;
+      }
+
+      modalImage.src = bird.image;
+      modalImage.alt = bird.name;
+      modalTitle.textContent = bird.name;
+      modalDescription.textContent = bird.description;
+      modal.style.display = 'flex';
+      console.log('Modal displayed with:', bird);
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('birdModal');
+      if (modal) {
+        modal.style.display = 'none';
+        console.log('Modal closed');
+      } else {
+        console.error('Modal element not found');
+      }
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('birdModal');
+      if (event.target === modal) {
+        modal.style.display = 'none';
+        console.log('Modal closed by clicking outside');
+      }
+    };
+
+  </script>
+
+     <script>
+function toggleParksDropdown(event) 
+{
+  event.preventDefault();
+  const dropdown = event.target.closest('.dropdown');
+  dropdown.classList.toggle('open');
+}
+</script>
+
+<script>
+    function toggleMenu() 
+    {
+      const menu = document.getElementById("menu");
+      menu.classList.toggle("show");
+    }
+  </script>
+
+
+</body>
+</html>

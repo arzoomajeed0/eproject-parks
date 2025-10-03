@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birds of khunjerab National Park</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', 'sans-serif';
+    }
+
+    nav
+    {
+      height: 70px;
+      color: #FFFFFF;
+      background: #2E5C2E;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 50px;
+      position: relative;
+    }
+
+    nav .logo
+     {
+      font-size: 1.1rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+    nav .logo img 
+    {
+      width: 35px;
+      height: 35px;
+      object-fit: contain;
+      margin-right: 2px;
+    }
+    nav .logo span 
+    {
+      font-size: larger;
+      font-weight: bold;
+      font-family: 'Poppins', sans-serif; 
+    }
+    
+    nav ul
+    {
+      display: flex;
+      list-style: none;
+      align-items: center;
+    }
+    
+    nav ul li
+    {
+      margin: 0 7px;
+      position: relative; 
+    }
+    
+    nav ul li a
+    {
+      color:#FFFFFF ;
+      text-decoration: none;
+      font-size: medium;
+      letter-spacing: 0.20px;
+      padding: 0.50px 1px;
+      display: block;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    
+    nav ul li a:hover
+    {
+      background-color: rgb(120, 160, 120);
+      border-bottom: 3px #FFD700 ;
+      color: #FFD700;
+    }
+
+   
+    .dropdown-menu 
+    {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #f1f8e9;
+      border-radius: 8px;
+      min-width: 250px;
+      padding: 8px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      z-index: 2000;
+      margin-top: 5px;
+    }
+    
+    .dropdown-menu li {
+      width: 100%;
+    }
+    
+    .dropdown-menu a 
+    {
+      padding: 10px 20px;
+      color:#2E5C2E ;
+      text-decoration: none;
+      transition: all 0.3s;
+      border-bottom: 1px solid #e8f5e8;
+    }
+    
+    .dropdown-menu a:hover 
+    {
+      background: #c8e6c9;
+      color: #1b5e20;
+    }
+
+   
+ .dropdown.open .dropdown-menu 
+ {
+  display: flex; 
+}
+
+    
+    nav ul li.dropdown a::after {
+      content: "▾";
+      margin-left: 5px;
+      font-size: 12px;
+      transition: transform 0.3s;
+    }
+    
+    nav ul li.dropdown:hover a::after {
+      transform: rotate(180deg);
+    }
+    
+    .hamburger 
+    {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 5px;
+    }
+    
+    .hamburger span 
+    {
+      width: 25px;
+      height: 3px;
+      background: white;
+      border-radius: 3px;
+      transition: 0.3s;
+    }
+  @media (max-width: 400px) 
+  {
+  .hero h1 
+{
+     font-size: 2rem; 
+  }
+  .card 
+{
+    width: 100%; 
+  }
+  nav ul 
+{
+    width: 220px; 
+  }
+}
+
+    @media (max-width: 768px) 
+    {
+  nav {
+    padding: 0 20px;
+  }
+  
+  nav ul 
+  {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #2E5C2E;
+    flex-direction: column;
+    width: 280px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 3000;
+  }
+  
+  nav ul.show 
+  {
+    display: flex;
+  }
+  
+  nav ul li 
+  {
+    width: 100%;
+    margin: 5px 0;
+  }
+  
+  nav ul li a 
+  {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    text-align: left;
+    color: white;
+  }
+  
+  
+  .dropdown-menu 
+  {
+    position: static;
+    display: none;
+    background: #2E5C2E;  
+    box-shadow: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;           
+  }
+  
+  .dropdown-menu li a 
+  {
+    padding: 12px 20px;
+    color: white;
+    font-weight: 500;
+  }
+  
+  .dropdown.open .dropdown-menu 
+  {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  nav ul li:hover .dropdown-menu 
+  {
+    display: none; 
+  }
+  
+  .hamburger 
+  {
+    display: flex;
+  }
+  .hamburger:hover 
+  {
+    background-color: rgb(120, 160, 120);
+  }
+  
+  .logo span 
+  {
+    font-size: large;
+  }
+  
+  .logo img 
+  {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+    .birds
+     {
+      padding: 40px;
+      text-align: center;
+      background: #f9f9f9;
+    }
+    .birds h2 
+    {
+      margin-bottom: 20px;
+      color: #2E5C2E;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+    .bird-cards 
+    {
+      display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 20px;
+    max-width: 1200px;
+   margin: 20px auto;
+   padding: 0 15px;
+    }
+
+    .bird-card 
+    {
+    background: white;
+    padding: 20px;
+    width: 100%;         
+    max-width: 300px; 
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+    }
+    .bird-card:hover 
+    {
+      transform: scale(1.05);
+    }
+    .bird-card img 
+    {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .bird-card h3 
+    {
+      margin: 10px 0;
+      color: #2e7d32;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+    .bird-card p 
+    {
+      font-weight: bold;
+      color: #333;
+      font-family: 'Poppins', sans-serif;
+    }
+    .bird-card a 
+    {
+      display: inline-block;
+      margin-top: 10px;
+      background: #4caf50;
+      color: white;
+      padding: 8px 15px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.3s;
+      cursor: pointer;
+    }
+    .bird-card a:hover 
+    {
+      background: #388e3c;
+      transform: scale(1.1);
+    }
+
+    .modal 
+    {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content
+     {
+      background: white;
+      padding: 20px;
+      max-width: 600px;
+      width: 90%;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      text-align: center;
+      position: relative;
+      font-family: 'Poppins', sans-serif;
+    }
+    .modal-content img 
+    {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .modal-content h3 
+    {
+      color: #2e7d32;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .modal-content p 
+    {
+      color: #333;
+      margin-bottom: 15px;
+    }
+    .modal-content .close-btn 
+    {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.5rem;
+      color: #333;
+      cursor: pointer;
+    }
+    .modal-content .close-btn:hover 
+    {
+      color: #4caf50;
+    }
+
+     footer {
+  background: #2E5C2E;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-container 
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: auto;
+  gap: 30px;
+}
+
+.footer-col h3,
+.footer-col h4 
+{
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: #FFD700; 
+}
+
+.footer-col ul 
+{
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li 
+{
+  margin: 8px 0;
+}
+
+.footer-col ul li a 
+{
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-col ul li a:hover 
+{
+  color: #FFD700;
+}
+
+footer p {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+@media (max-width: 400px)
+ {
+  footer 
+  {
+    padding: 20px 10px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .footer-col 
+  {
+    width: 100%;
+  }
+
+  .footer-col h3,
+  .footer-col h4 
+  {
+    font-size: 1rem;
+  }
+
+  .footer-col ul li a 
+  {
+    font-size: 0.9rem;
+  }
+
+  footer p {
+    font-size: 0.8rem;
+  }
+}
+
+
+@media (max-width: 768px) 
+{
+  .footer-container 
+  {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+  </style>
+</head>
+<body>
+ 
+  <nav>
+    <div class="logo">
+      <a href="index.html">
+      <img src="Logo/pngwing.com (8).png" alt="National Parks Logo">
+      </a>
+      <span>National Parks Info</span>
+    </div>
+
+    <ul id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+
+
+      <li class="dropdown">
+        <a href="#" onclick="toggleParksDropdown(event)">Parks</a>
+        <ul class="dropdown-menu">
+          <li><a href="ayubpark.html">Ayub National Park</a></li>
+          <li><a href="kirtharpark.html">Kirthar National Park</a></li>
+          <li><a href="khunjerabpark.html">Khunjerab National Park</a></li>
+          <li><a href="lalsuhanrapark.html">Lal Suhanra National Park</a></li>
+          <li><a href="ayubiapark.html">Ayubia National Park</a></li>
+        </ul>
+      </li>
+      <li><a href="animals.html">Animals</a></li>
+      <li><a href="birds.html">Birds</a></li>
+      <li><a href="sitemap.html">Site Map</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <section class="birds">
+    <h2>Birds of khunjerab National Park</h2>
+    <div class="bird-cards">
+      <div class="bird-card">
+        <img src="AyubiaparkImages/golden eagle.jpg" alt="Golden Eagle">
+        <h3>Golden Eagle</h3>
+        <p>Golden Eagles soar over khunjerab peaks, hunting with sharp talons in rugged hills and open skies.</p>
+        <a onclick="showBirdDetails('golden-eagle')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="KhunjerabAnimalsImages/lammergeier.jpg" alt="Lammergeier">
+        <h3>Lammergeier</h3>
+        <p>Lammergeiers in khunjerab drop bones from heights, scavenging in the park’s steep, rocky cliffs.</p>
+        <a onclick="showBirdDetails('lammergeier')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="KhunjerabAnimalsImages/himalyan giffron vulture.jpg" alt="Himalayan Griffon Vulture">
+        <h3>Himalayan Griffon Vulture</h3>
+        <p>Himalayan Griffons soar in khunjerab skies, scavenging carrion across the park’s arid plateaus.</p>
+        <a onclick="showBirdDetails('himalayan-griffon-vulture')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="KhunjerabAnimalsImages/snowpatridge.jpg" alt="Snow Partridge">
+        <h3>Snow Partridge</h3>
+        <p>Snow Partridges in khunjerab blend with rocky slopes, foraging in sparse highland meadows.</p>
+        <a onclick="showBirdDetails('snow-partridge')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="KhunjerabAnimalsImages/tibelanPatridge.jpg" alt="Tibetan Snowcock">
+        <h3>Tibetan Snowcock</h3>
+        <p>Tibetan Snowcocks call loudly in khunjerab hills, thriving in rocky zones with sparse vegetation.</p>
+        <a onclick="showBirdDetails('tibetan-snowcock')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="KhunjerabAnimalsImages/chukar patridge.jpg" alt="Chukar Partridge">
+        <h3>Chukar Partridge</h3>
+        <p>Chukar Partridges in khunjerab hills make loud calls, foraging in rocky areas with sparse grass.</p>
+        <a onclick="showBirdDetails('chukar-partridge')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="KhunjerabAnimalsImages/RockPiegon.jpg" alt="Rock Pigeon">
+        <h3>Rock Pigeon</h3>
+        <p>Rock Pigeons flock in khunjerab open areas, scavenging food and nesting in the park’s cliffs.</p>
+        <a onclick="showBirdDetails('rock-pigeon')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="KhunjerabAnimalsImages/Horned lark.jpg" alt="Horned Lark">
+        <h3>Horned Lark</h3>
+        <p>Horned Larks in khunjerab sing in open terrains, their small horns visible in arid grasslands.</p>
+        <a onclick="showBirdDetails('horned-lark')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="KhunjerabAnimalsImages/alpine chough.jpg" alt="Alpine Chough">
+        <h3>Alpine Chough</h3>
+        <p>Alpine Choughs glide over khunjerab cliffs, their yellow beaks striking in rocky landscapes.</p>
+        <a onclick="showBirdDetails('alpine-chough')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="KhunjerabAnimalsImages/redbilledchough.jpg" alt="Red-billed Chough">
+        <h3>Red-billed Chough</h3>
+        <p>Red-billed Choughs in khunjerab soar over hills, their red beaks bright in the park’s arid cliffs.</p>
+        <a onclick="showBirdDetails('red-billed-chough')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="KhunjerabAnimalsImages/Northern Reven.jpg" alt="Northern Raven">
+        <h3>Northern Raven</h3>
+        <p>Northern Ravens in khunjerab caw loudly, scavenging cleverly across the park’s rugged terrains.</p>
+        <a onclick="showBirdDetails('northern-raven')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="KhunjerabAnimalsImages/wallcreeper.jpg" alt="Wallcreeper">
+        <h3>Wallcreeper</h3>
+        <p>Wallcreepers in khunjerab climb rocky cliffs, their red wings flashing in the park’s steep terrains.</p>
+        <a onclick="showBirdDetails('wallcreeper')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="KhunjerabAnimalsImages/whitewingedredstart.jpg" alt="White-winged Redstart">
+        <h3>White-winged Redstart</h3>
+        <p>White-winged Redstarts in khunjerab flit in open areas, their white wings bright in rocky hills.</p>
+        <a onclick="showBirdDetails('white-winged-redstart')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="KhunjerabAnimalsImages/robin accentor.jpg" alt="Robin Accentor">
+        <h3>Robin Accentor</h3>
+        <p>Robin Accentors in khunjerab hop in scrublands, their soft songs echoing in the park’s valleys.</p>
+        <a onclick="showBirdDetails('robin-accentor')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="KhunjerabAnimalsImages/brown accenor.jpg" alt="Brown Accentor">
+        <h3>Brown Accentor</h3>
+        <p>Brown Accentors in khunjerab forage in rocky areas, blending with the park’s arid landscapes.</p>
+        <a onclick="showBirdDetails('brown-accentor')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="KhunjerabAnimalsImages/black redstart.jpg" alt="Black Redstart">
+        <h3>Black Redstart</h3>
+        <p>Black Redstarts in Khunjerab flit over rocks, their red tails flashing in the park’s open terrains.</p>
+        <a onclick="showBirdDetails('black-redstart')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="KhunjerabAnimalsImages/fire fronted serin.jpg" alt="Fire-fronted Serin">
+        <h3>Fire-fronted Serin</h3>
+        <p>Fire-fronted Serins in Khunjerab chirp in scrublands, their bright heads vivid in arid terrains.</p>
+        <a onclick="showBirdDetails('fire-fronted-serin')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="KhunjerabAnimalsImages/great rosefinch.jpg" alt="Great Rosefinch">
+        <h3>Great Rosefinch</h3>
+        <p>Great Rosefinches in Khunjerab forage in high areas, their pink plumage bright in rocky slopes.</p>
+        <a onclick="showBirdDetails('great-rosefinch')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="KhunjerabAnimalsImages/brandth moubntain finch.jpg" alt="Brandt’s Mountain Finch">
+        <h3>Brandt’s Mountain Finch</h3>
+        <p>Brandt’s Mountain Finches in khunjerab chirp in highlands, foraging in the park’s rocky terrains.</p>
+        <a onclick="showBirdDetails('brandts-mountain-finch')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="KhunjerabAnimalsImages/Plain Mountain finch.jpg" alt="Plain Mountain Finch">
+        <h3>Plain Mountain Finch</h3>
+        <p>Plain Mountain Finches in khunjerab forage in rocky areas, their soft calls echoing in highlands.</p>
+        <a onclick="showBirdDetails('plain-mountain-finch')">Learn More</a>
+      </div>
+      <div class="bird-card">
+        <img src="Images/WaterFowl.jpg" alt="Ducks">
+        <h3>Ducks</h3>
+        <p>Ducks paddle in khunjerab streams, their quacks and splashes enlivening the park’s water bodies.</p>
+        <a onclick="showBirdDetails('ducks')">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal" id="birdModal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <img id="modalImage" src="" alt="Bird">
+      <h3 id="modalTitle"></h3>
+      <p id="modalDescription"></p>
+    </div>
+  </div>
+<footer>
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3>National Parks Info</h3>
+      <p>Project Of National Park Info</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Info Pages</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="parks.html">Parks</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Animals And Birds</h4>
+      <ul>
+        <li><a href="animals.html">Animals</a></li>
+        <li><a href="birds.html">Birds</a></li>
+        
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Explore Parks</h4>
+      <ul>
+        <li><a href="lalsuhanrapark.html">Lal Suhanra Park</a></li>
+        <li><a href="ayubpark.html">Ayub National Park</a></li>
+        <li><a href="kirtharpark.html">Kirthar National Park</a></li>
+        <li><a href="ayubiapark.html">Ayubia National Park</a></li>
+        <li><a href="khunjerabpark.html">Khunjerab National Park</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  <script>
+    const birdData = {
+      'golden-eagle': {
+        name: "Golden Eagle",
+        image: "AyubiaparkImages/golden eagle.jpg",
+        description: "Golden Eagles hunt in khunjerab hills, soaring with sharp talons over rugged peaks and valleys."
+      },
+      'lammergeier': {
+        name: "Lammergeier",
+        image: "KhunjerabAnimalsImages/lammergeier.jpg",
+        description: "Lammergeiers in khunjerab break bones by dropping them, thriving in steep, rocky mountain cliffs."
+      },
+      'himalayan-griffon-vulture': {
+        name: "Himalayan Griffon Vulture",
+        image: "KhunjerabAnimalsImages/himalyan giffron vulture.jpg",
+        description: "Himalayan Griffons scavenge carrion in , soaring high over the park’s arid plateaus."
+      },
+      'snow-partridge': {
+        name: "Snow Partridge",
+        image: "KhunjerabAnimalsImages/snowpatridge.jpg",
+        description: "Snow Partridges blend into khunjerab rocky slopes, foraging in sparse highland meadows."
+      },
+      'tibetan-snowcock': {
+        name: "Tibetan Snowcock",
+        image: "KhunjerabAnimalsImages/tibelanPatridge.jpg",
+        description: "Tibetan Snowcocks in khunjerab call loudly, thriving in rocky zones with sparse vegetation."
+      },
+      'chukar-partridge': {
+        name: "Chukar Partridge",
+        image: "KhunjerabAnimalsImages/chukar patridge.jpg",
+        description: "Chukar Partridges in khunjerab hills forage in sparse grass, calling loudly in rocky areas."
+      },
+      'rock-pigeon': {
+        name: "Rock Pigeon",
+        image: "KhunjerabAnimalsImages/RockPiegon.jpg",
+        description: "Rock Pigeons in khunjerab flock in open areas, scavenging food and nesting in rocky cliffs."
+      },
+      'horned-lark': {
+        name: "Horned Lark",
+        image: "KhunjerabAnimalsImages/Horned lark.jpg",
+        description: "Horned Larks sing in khunjerab open terrains, their small horns visible in arid grasslands."
+      },
+      'alpine-chough': {
+        name: "Alpine Chough",
+        image: "KhunjerabAnimalsImages/alpine chough.jpg",
+        description: "Alpine Choughs glide over khunjerab cliffs, their yellow beaks striking in rocky landscapes."
+      },
+      'red-billed-chough': {
+        name: "Red-billed Chough",
+        image: "KhunjerabAnimalsImages/redbilledchough.jpg",
+        description: "Red-billed Choughs soar over Kirthar’s hills, their red beaks bright in arid cliff terrains."
+      },
+      'northern-raven': {
+        name: "Northern Raven",
+        image: "KhunjerabAnimalsImages/Northern Reven.jpg",
+        description: "Northern Ravens in khunjerab caw and scavenge cleverly, thriving across rugged park terrains."
+      },
+      'wallcreeper': {
+        name: "Wallcreeper",
+        image: "KhunjerabAnimalsImages/wallcreeper.jpg",
+        description: "Wallcreepers climb khunjerab cliffs, their red wings flashing in the park’s steep terrains."
+      },
+      'white-winged-redstart': {
+        name: "White-winged Redstart",
+        image: "KhunjerabAnimalsImages/whitewingedredstart.jpg",
+        description: "White-winged Redstarts flit in khunjerab open areas, their white wings bright in rocky hills."
+      },
+      'robin-accentor': {
+        name: "Robin Accentor",
+        image: "KhunjerabAnimalsImages/robin accentor.jpg",
+        description: "Robin Accentors hop in khunjerab scrublands, their soft songs echoing in the park’s valleys."
+      },
+      'brown-accentor': {
+        name: "Brown Accentor",
+        image: "KhunjerabAnimalsImages/brown accenor.jpg",
+        description: "Brown Accentors forage in khunjerab rocky areas, blending with the park’s arid landscapes."
+      },
+      'black-redstart': {
+        name: "Black Redstart",
+        image: "KhunjerabAnimalsImages/black redstart.jpg",
+        description: "Black Redstarts in khunjerab flit over rocks, their red tails flashing in open park terrains."
+      },
+      'fire-fronted-serin': {
+        name: "Fire-fronted Serin",
+        image: "KhunjerabAnimalsImages/fire fronted serin.jpg",
+        description: "Fire-fronted Serins chirp in khunjerab scrublands, their bright heads vivid in arid terrains."
+      },
+      'great-rosefinch': {
+        name: "Great Rosefinch",
+        image: "KhunjerabAnimalsImages/great rosefinch.jpg",
+        description: "Great Rosefinches forage in khunjerab high areas, their pink plumage bright in rocky slopes."
+      },
+      'brandts-mountain-finch': {
+        name: "Brandt’s Mountain Finch",
+        image: "KhunjerabAnimalsImages/brandth moubntain finch.jpg",
+        description: "Brandt’s Mountain Finches chirp in khunjerab highlands, foraging in the park’s rocky terrains."
+      },
+      'plain-mountain-finch': {
+        name: "Plain Mountain Finch",
+        image: "KhunjerabAnimalsImages/Plain Mountain finch.jpg",
+        description: "Plain Mountain Finches forage in khunjerab rocky areas, their soft calls echoing in highlands."
+      },
+      'ducks': {
+        name: "Ducks",
+        image: "Images/WaterFowl.jpg",
+        description: "Ducks in khunjerab streams swim and dive, feeding on plants in the park’s scarce water bodies."
+      }
+    };
+
+    function showBirdDetails(birdKey) {
+      console.log('Opening modal for:', birdKey);
+      const bird = birdData[birdKey];
+      if (!bird) {
+        console.error('Bird not found for key:', birdKey);
+        return;
+      }
+      const modal = document.getElementById('birdModal');
+      const modalImage = document.getElementById('modalImage');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalDescription = document.getElementById('modalDescription');
+
+      if (!modal || !modalImage || !modalTitle || !modalDescription) {
+        console.error('Modal elements not found');
+        return;
+      }
+
+      modalImage.src = bird.image;
+      modalImage.alt = bird.name;
+      modalTitle.textContent = bird.name;
+      modalDescription.textContent = bird.description;
+      modal.style.display = 'flex';
+      console.log('Modal displayed with:', bird);
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('birdModal');
+      if (modal) {
+        modal.style.display = 'none';
+        console.log('Modal closed');
+      } else {
+        console.error('Modal element not found');
+      }
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('birdModal');
+      if (event.target === modal) {
+        modal.style.display = 'none';
+        console.log('Modal closed by clicking outside');
+      }
+    };
+  </script>
+
+        <script>
+function toggleParksDropdown(event) 
+{
+  event.preventDefault();
+  const dropdown = event.target.closest('.dropdown');
+  dropdown.classList.toggle('open');
+}
+</script>
+
+<script>
+    function toggleMenu() 
+    {
+      const menu = document.getElementById("menu");
+      menu.classList.toggle("show");
+    }
+  </script>
+
+</body>
+</html>

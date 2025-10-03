@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khunjerab National Park</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <style>
+
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', 'sans-serif';
+    }
+
+    nav
+    {
+      height: 70px;
+      color: #FFFFFF;
+      background: #2E5C2E;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 50px;
+      position: relative;
+    }
+
+    nav .logo
+     {
+      font-size: 1.1rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+    nav .logo img 
+    {
+      width: 35px;
+      height: 35px;
+      object-fit: contain;
+      margin-right: 2px;
+    }
+    nav .logo span 
+    {
+      font-size: larger;
+      font-weight: bold;
+      font-family: 'Poppins', sans-serif; 
+    }
+    
+    nav ul
+    {
+      display: flex;
+      list-style: none;
+      align-items: center;
+    }
+    
+    nav ul li
+    {
+      margin: 0 7px;
+      position: relative; 
+    }
+    
+    nav ul li a
+    {
+      color:#FFFFFF ;
+      text-decoration: none;
+      font-size: medium;
+      letter-spacing: 0.20px;
+      padding: 0.50px 1px;
+      display: block;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    
+    nav ul li a:hover
+    {
+      background-color: rgb(120, 160, 120);
+      border-bottom: 3px #FFD700 ;
+      color: #FFD700;
+    }
+
+   
+    .dropdown-menu 
+    {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #f1f8e9;
+      border-radius: 8px;
+      min-width: 250px;
+      padding: 8px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      z-index: 2000;
+      margin-top: 5px;
+    }
+    
+    .dropdown-menu li {
+      width: 100%;
+    }
+    
+    .dropdown-menu a 
+    {
+      padding: 10px 20px;
+      color:#2E5C2E ;
+      text-decoration: none;
+      transition: all 0.3s;
+      border-bottom: 1px solid #e8f5e8;
+    }
+    
+    .dropdown-menu a:hover 
+    {
+      background: #c8e6c9;
+      color: #1b5e20;
+    }
+
+   
+ .dropdown.open .dropdown-menu 
+ {
+  display: flex; 
+}
+
+    
+    nav ul li.dropdown a::after {
+      content: "▾";
+      margin-left: 5px;
+      font-size: 12px;
+      transition: transform 0.3s;
+    }
+    
+    nav ul li.dropdown:hover a::after {
+      transform: rotate(180deg);
+    }
+    
+    .hamburger 
+    {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 5px;
+    }
+    
+    .hamburger span 
+    {
+      width: 25px;
+      height: 3px;
+      background: white;
+      border-radius: 3px;
+      transition: 0.3s;
+    }
+
+
+  @media (max-width: 400px) 
+{
+  .hero h1 
+{
+    font-size: 2rem; 
+  } 
+
+  .card 
+{
+  
+    width: 100%; 
+  }
+  nav ul 
+{
+    width: 220px; 
+  }
+}
+
+
+   @media (max-width: 768px) 
+    {
+  nav {
+    padding: 0 20px;
+  }
+  
+  nav ul 
+  {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #2E5C2E;
+    flex-direction: column;
+    width: 280px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 3000;
+  }
+  
+  nav ul.show 
+  {
+    display: flex;
+  }
+  
+  nav ul li 
+  {
+    width: 100%;
+    margin: 5px 0;
+  }
+  
+  nav ul li a 
+  {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    text-align: left;
+    color: white;
+  }
+  
+  
+  .dropdown-menu 
+  {
+    position: static;
+    display: none;
+    background: #2E5C2E;  
+    box-shadow: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;           
+  }
+  
+  .dropdown-menu li a 
+  {
+    padding: 12px 20px;
+    color: white;
+    font-weight: 500;
+  }
+  
+  .dropdown.open .dropdown-menu 
+  {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  nav ul li:hover .dropdown-menu 
+  {
+    display: none; 
+  }
+  
+  .hamburger 
+  {
+    display: flex;
+  }
+  .hamburger:hover 
+  {
+    background-color: rgb(120, 160, 120);
+  }
+  
+  .logo span 
+  {
+    font-size: large;
+  }
+  
+  .logo img 
+  {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+    .download-section
+     {
+      background: white;
+      padding: 10px 50px;
+      text-align: right;
+    }
+    .download-section a 
+    {
+      background: #2e7d32;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+      transition: background 0.3s;
+    }
+    .download-section a:hover 
+    {
+      background: #1b5e20;
+    }
+
+    .park-content 
+    {
+      padding: 40px;
+      text-align: center;
+      background: #f9f9f9;
+    }
+    .park-image 
+    {
+      width: 100%;
+      max-width: 1000px;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin: 0 auto 20px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    .park-section 
+    {
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    .park-section h2 
+    {
+      color: #2E5C2E;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .park-section p 
+    {
+      color: #333;
+      font-family: Arial, sans-serif;
+    }
+    .park-buttons
+    {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .park-buttons a 
+    {
+      background: #2e7d32;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+      transition: background 0.3s;
+    }
+    .park-buttons a:hover 
+    {
+      background: #1b5e20;
+    }
+
+     footer {
+  background: #2E5C2E;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-container 
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: auto;
+  gap: 30px;
+}
+
+.footer-col h3,
+.footer-col h4 
+{
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: #FFD700; 
+}
+
+.footer-col ul 
+{
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li 
+{
+  margin: 8px 0;
+}
+
+.footer-col ul li a 
+{
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-col ul li a:hover 
+{
+  color: #FFD700;
+}
+
+footer p {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+@media (max-width: 400px)
+ {
+  footer 
+  {
+    padding: 20px 10px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .footer-col 
+  {
+    width: 100%;
+  }
+
+  .footer-col h3,
+  .footer-col h4 
+  {
+    font-size: 1rem;
+  }
+
+  .footer-col ul li a 
+  {
+    font-size: 0.9rem;
+  }
+
+  footer p {
+    font-size: 0.8rem;
+  }
+}
+
+
+@media (max-width: 768px) 
+{
+  .footer-container 
+  {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+  </style>
+</head>
+<body>
+
+ <nav>
+    <div class="logo">
+      <a href="index.html">
+      <img src="Logo/pngwing.com (8).png" alt="National Parks Logo">
+      </a>
+      <span>National Parks Info</span>
+    </div>
+
+    <ul id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+
+
+      <li class="dropdown">
+        <a href="parks.html" onclick="toggleParksDropdown(event)">Parks</a>
+        <ul class="dropdown-menu">
+          <li><a href="ayubpark.html">Ayub National Park</a></li>
+          <li><a href="kirtharpark.html">Kirthar National Park</a></li>
+          <li><a href="khunjerabpark.html">Khunjerab National Park</a></li>
+          <li><a href="lalsuhanrapark.html">Lal Suhanra National Park</a></li>
+          <li><a href="ayubiapark.html">Ayubia National Park</a></li>
+        </ul>
+      </li>
+      <li><a href="animals.html">Animals</a></li>
+      <li><a href="birds.html">Birds</a></li>
+      <li><a href="sitemap.html">Site Map</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <section class="download-section">
+    <a href="files/Khunjerab.docx">Download Details</a>
+  </section>
+
+  <section class="park-content">
+    <img src="Images/Khunjerab National Park.jpg" alt="Khunjerab National Park" class="park-image">
+    <div class="park-section">
+      <h2>Park Name</h2>
+      <h2><p><b>Khunjerab National Park</b></p></h2> 
+      <p><b>"The Roof Of Pakistan’s Wildlife"</b></p>
+      <div class="park-buttons">
+        <a href="khunjerab.html">Animals</a>
+        <a href="khunjerabbirds.html">Birds</a>
+      </div>
+    </div>
+    <div class="park-section">
+      <h2>History</h2>
+      <p><b>Founded in 1975, Khunjerab National Park in Gilgit-Baltistan was established to safeguard rare and endangered high-altitude species such as the Snow Leopard, Marco Polo Sheep, Himalayan Ibex, and Blue Sheep. Spread across vast alpine meadows, rugged mountains, and glaciated valleys, the park is recognized as one of the highest-altitude protected areas in the world.</b></p>
+      <b><br><p>Situated along the famous Karakoram Highway near the Pakistan–China border, Khunjerab not only serves as a vital wildlife refuge but also as a symbol of ecological preservation in the harsh yet breathtaking landscapes of the Karakoram and Pamir ranges. Its unique alpine ecosystem supports a delicate balance of flora and fauna, including migratory birds, predators, and herbivores adapted to extreme conditions.</b><br></p>
+      <b><br><p>Beyond its ecological value, the park attracts nature lovers, wildlife photographers, and adventure travelers from around the globe. Visitors come to experience its pristine beauty, observe rare wildlife in their natural habitat, and witness one of the most spectacular high-mountain environments in Pakistan. By promoting eco-tourism and conservation, Khunjerab National Park continues to play a vital role in protecting biodiversity while highlighting the natural heritage of Gilgit-Baltistan.</b><br></p>
+    </div>
+    <div class="park-section">
+      <h2>Area</h2>
+      <b><p>Covering about 2,269 square kilometers, Khunjerab National Park is one of the world’s highest-altitude protected areas. Its rugged mountains, alpine meadows, and rocky cliffs rise above 4,000 meters, creating a harsh but stunning habitat. The park shelters Himalayan Ibex, Blue Sheep, Pikas, and the rare Snow Leopard, along with Golden Eagles and Lammergeiers. Despite extreme cold, this unique alpine ecosystem thrives, making Khunjerab a vital sanctuary for high-altitude wildlife.</p></b>
+    </div>
+    <div class="park-section">
+      <h2>Facilities</h2>
+      <h4><b><p>. Viewpoints & Scenic Spots</b></h4> – Specially designed areas along the Karakoram Highway for breathtaking mountain views.</p><br>
+      <h4><b><p>. Wildlife Viewing Points</b></h4> – Opportunities to spot Ibex, Blue Sheep, Marmots, and if lucky, the Snow Leopard.</p><br>
+      <h4><b><p>. Information Signboards</b></h4> – Educational boards about the park’s animals, birds, and ecosystem.</p><br>
+      <h4><b><p>. Tourist Rest Areas</b></h4> – Basic resting and refreshment points along the highway.</p><br>
+      <h4><b><p>. Photography & Filming Spots</b></h4> – Popular for capturing landscapes, glaciers, and wildlife.</p><br>
+      <h4><b><p>. Security & Check Posts</b></h4> – Ensuring safety for travelers near the Pak–China border.</p><br>
+      <h4><b><p>. Eco-Tourism Support</b></h4> – Promoting conservation awareness and sustainable tourism.</p><br>
+    </div>
+  </section>
+<footer>
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3>National Parks Info</h3>
+      <p>Project Of National Park Info</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Info Pages</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="parks.html">Parks</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Animals And Birds</h4>
+      <ul>
+        <li><a href="animals.html">Animals</a></li>
+        <li><a href="birds.html">Birds</a></li>
+        
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Explore Parks</h4>
+      <ul>
+        <li><a href="lalsuhanrapark.html">Lal Suhanra Park</a></li>
+        <li><a href="ayubpark.html">Ayub National Park</a></li>
+        <li><a href="kirtharpark.html">Kirthar National Park</a></li>
+        <li><a href="ayubiapark.html">Ayubia National Park</a></li>
+        <li><a href="khunjerabpark.html">Khunjerab National Park</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+  
+  <script>
+function toggleParksDropdown(event) 
+{
+  event.preventDefault();
+  const dropdown = event.target.closest('.dropdown');
+  dropdown.classList.toggle('open');
+}
+</script>
+
+<script>
+    function toggleMenu() 
+    {
+      const menu = document.getElementById("menu");
+      menu.classList.toggle("show");
+    }
+  </script>
+
+</body>
+</html>

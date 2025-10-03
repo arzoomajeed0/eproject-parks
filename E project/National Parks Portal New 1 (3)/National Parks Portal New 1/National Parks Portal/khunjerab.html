@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khunjerab National Park - Animals</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <style>
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', 'sans-serif';
+    }
+
+    nav
+    {
+      height: 70px;
+      color: #FFFFFF;
+      background: #2E5C2E;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 50px;
+      position: relative;
+    }
+
+    nav .logo
+     {
+      font-size: 1.1rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+    nav .logo img 
+    {
+      width: 35px;
+      height: 35px;
+      object-fit: contain;
+      margin-right: 2px;
+    }
+    nav .logo span 
+    {
+      font-size: larger;
+      font-weight: bold;
+      font-family: 'Poppins', sans-serif; 
+    }
+    
+    nav ul
+    {
+      display: flex;
+      list-style: none;
+      align-items: center;
+    }
+    
+    nav ul li
+    {
+      margin: 0 7px;
+      position: relative; 
+    }
+    
+    nav ul li a
+    {
+      color:#FFFFFF ;
+      text-decoration: none;
+      font-size: medium;
+      letter-spacing: 0.20px;
+      padding: 0.50px 1px;
+      display: block;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    
+    nav ul li a:hover
+    {
+      background-color: rgb(120, 160, 120);
+      border-bottom: 3px #FFD700 ;
+      color: #FFD700;
+    }
+
+   
+    .dropdown-menu 
+    {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #f1f8e9;
+      border-radius: 8px;
+      min-width: 250px;
+      padding: 8px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      z-index: 2000;
+      margin-top: 5px;
+    }
+    
+    .dropdown-menu li {
+      width: 100%;
+    }
+    
+    .dropdown-menu a 
+    {
+      padding: 10px 20px;
+      color:#2E5C2E ;
+      text-decoration: none;
+      transition: all 0.3s;
+      border-bottom: 1px solid #e8f5e8;
+    }
+    
+    .dropdown-menu a:hover 
+    {
+      background: #c8e6c9;
+      color: #1b5e20;
+    }
+
+   
+ .dropdown.open .dropdown-menu 
+ {
+  display: flex; 
+}
+
+    
+    nav ul li.dropdown a::after {
+      content: "▾";
+      margin-left: 5px;
+      font-size: 12px;
+      transition: transform 0.3s;
+    }
+    
+    nav ul li.dropdown:hover a::after {
+      transform: rotate(180deg);
+    }
+    
+    .hamburger 
+    {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 5px;
+    }
+    
+    .hamburger span 
+    {
+      width: 25px;
+      height: 3px;
+      background: white;
+      border-radius: 3px;
+      transition: 0.3s;
+    }
+
+@media (max-width: 400px) 
+{
+.hero h1 
+{
+    font-size: 2rem; 
+  }
+.card 
+{
+    width: 100%; 
+  }
+  nav ul 
+{
+    width: 220px; 
+  }
+}
+
+@media (max-width: 768px) 
+    {
+  nav {
+    padding: 0 20px;
+  }
+  
+  nav ul 
+  {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #2E5C2E;
+    flex-direction: column;
+    width: 280px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 3000;
+  }
+  
+  nav ul.show 
+  {
+    display: flex;
+  }
+  
+  nav ul li 
+  {
+    width: 100%;
+    margin: 5px 0;
+  }
+  
+  nav ul li a 
+  {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    text-align: left;
+    color: white;
+  }
+  
+  
+  .dropdown-menu 
+  {
+    position: static;
+    display: none;
+    background: #2E5C2E;  
+    box-shadow: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;           
+  }
+  
+  .dropdown-menu li a 
+  {
+    padding: 12px 20px;
+    color: white;
+    font-weight: 500;
+  }
+  
+  .dropdown.open .dropdown-menu 
+  {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  nav ul li:hover .dropdown-menu 
+  {
+    display: none; 
+  }
+  
+  .hamburger 
+  {
+    display: flex;
+  }
+  .hamburger:hover 
+  {
+    background-color: rgb(120, 160, 120);
+  }
+  
+  .logo span 
+  {
+    font-size: large;
+  }
+  
+  .logo img 
+  {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+    .animals 
+    {
+      padding: 40px;
+      text-align: center;
+      background: #f9f9f9;
+    }
+    .animals h2 
+    {
+      margin-bottom: 20px;
+      color: #2E5C2E;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+    .animal-cards 
+    {
+     display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+     gap: 20px;
+     max-width: 1200px;
+     margin: 20px auto;
+    padding: 0 15px;
+    }
+    .animal-card 
+    {
+      background: white;
+      padding: 20px;
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+    .animal-card:hover 
+    {
+      transform: scale(1.05);
+    }
+    .animal-card img 
+    {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .animal-card h3 
+    {
+      margin: 10px 0;
+      color: #2e7d32;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+    .animal-card p 
+    {
+      font-weight: bold;
+      color: #333;
+      font-family: 'Poppins', sans-serif;
+    }
+    .animal-card a 
+    {
+      display: inline-block;
+      margin-top: 10px;
+      background: #4caf50;
+      color: white;
+      padding: 8px 15px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.3s;
+      cursor: pointer;
+    }
+    .animal-card a:hover 
+    {
+      background: #388e3c;
+      transform: scale(1.1);
+    }
+
+    .modal 
+    {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content
+     {
+      background: white;
+      padding: 20px;
+      max-width: 600px;
+      width: 90%;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      text-align: center;
+      position: relative;
+      font-family: 'Poppins', sans-serif;
+      
+    }
+    .modal-content img 
+    {
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .modal-content h3
+     {
+      color: #2e7d32;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .modal-content p 
+    {
+      color: #333;
+      margin-bottom: 15px;
+    }
+    .modal-content .close-btn 
+    {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.5rem;
+      color: #333;
+      cursor: pointer;
+    }
+    .modal-content .close-btn:hover
+     {
+      color: #4caf50;
+    }
+
+     footer {
+  background: #2E5C2E;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-container 
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: auto;
+  gap: 30px;
+}
+
+.footer-col h3,
+.footer-col h4 
+{
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: #FFD700; 
+}
+
+.footer-col ul 
+{
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li 
+{
+  margin: 8px 0;
+}
+
+.footer-col ul li a 
+{
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-col ul li a:hover 
+{
+  color: #FFD700;
+}
+
+footer p {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+@media (max-width: 400px)
+ {
+  footer 
+  {
+    padding: 20px 10px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .footer-col 
+  {
+    width: 100%;
+  }
+
+  .footer-col h3,
+  .footer-col h4 
+  {
+    font-size: 1rem;
+  }
+
+  .footer-col ul li a 
+  {
+    font-size: 0.9rem;
+  }
+
+  footer p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) 
+{
+  .footer-container 
+  {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+  </style>
+</head>
+<body>
+<nav>
+    <div class="logo">
+      <a href="index.html">
+      <img src="Logo/pngwing.com (8).png" alt="National Parks Logo">
+      </a>
+      <span>National Parks Info</span>
+    </div>
+
+    <ul id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+
+
+      <li class="dropdown">
+        <a href="parks.html" onclick="toggleParksDropdown(event)">Parks</a>
+        <ul class="dropdown-menu">
+          <li><a href="ayubpark.html">Ayub National Park</a></li>
+          <li><a href="kirtharpark.html">Kirthar National Park</a></li>
+          <li><a href="khunjerabpark.html">Khunjerab National Park</a></li>
+          <li><a href="lalsuhanrapark.html">Lal Suhanra National Park</a></li>
+          <li><a href="ayubiapark.html">Ayubia National Park</a></li>
+        </ul>
+      </li>
+      <li><a href="animals.html">Animals</a></li>
+      <li><a href="birds.html">Birds</a></li>
+      <li><a href="sitemap.html">Site Map</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <section class="animals">
+    <h2>Animals of Khunjerab National Park</h2>
+    <div class="animal-cards">
+      <div class="animal-card">
+        <img src="Images/Snow-Leopard.jpg" alt="Snow Leopard">
+        <h3>Snow Leopard</h3>
+        <p>Iconic and rare predator of Khunjerab, thriving in high-altitude mountains.</p>
+        <a onclick="showAnimalDetails('snow-leopard')">Learn More</a>
+      </div>
+      <div class="animal-card">
+        <img src="Images/Marco Polo Sheep.jpg" alt="Marco Polo Sheep">
+        <h3>Marco Polo Sheep</h3>
+        <p>World’s largest wild sheep, grazing in Khunjerab’s high mountains.</p>
+        <a onclick="showAnimalDetails('marco-polo-sheep')">Learn More</a>
+      </div>
+      <div class="animal-card">
+        <img src="Images/Himalyan ibex.jpg" alt="Himalayan Ibex">
+        <h3>Himalayan Ibex</h3>
+        <p>Common in Khunjerab’s rocky cliffs, known for long, curved horns.</p>
+        <a onclick="showAnimalDetails('himalayan-ibex')">Learn More</a>
+      </div>
+      <div class="animal-card">
+        <img src="Images/Blue Sheep.jpg" alt="Blue Sheep">
+        <h3>Blue Sheep</h3>
+        <p>Important prey for snow leopards, found in Khunjerab’s alpine slopes.</p>
+        <a onclick="showAnimalDetails('blue-sheep')">Learn More</a>
+      </div>
+      <div class="animal-card">
+        <img src="Images/Tibetanwolf.jpg" alt="Tibetan Wolf">
+        <h3>Tibetan Wolf</h3>
+        <p>High-altitude predator, hunting in packs across Khunjerab’s terrain.</p>
+        <a onclick="showAnimalDetails('tibetan-wolf')">Learn More</a>
+      </div>
+      <div class="animal-card">
+        <img src="Images/Canadian_Lynx.jpg" alt="Lynx">
+        <h3>Lynx</h3>
+        <p>Elusive wild cat, rarely seen in Khunjerab’s rugged landscapes.</p>
+        <a onclick="showAnimalDetails('lynx')">Learn More</a>
+      </div>
+      <div class="animal-card">
+        <img src="Images/redfoxayubia.jpg" alt="Red Fox">
+        <h3>Red Fox</h3>
+        <p>Adaptable predator, commonly sighted in Khunjerab’s varied ecosystems.</p>
+        <a onclick="showAnimalDetails('red-fox')">Learn More</a>
+      </div>
+      <div class="animal-card">
+        <img src="Images/Himalayan_Marmot.jpg" alt="Himalayan Marmot">
+        <h3>Himalayan Marmot</h3>
+        <p>Burrowing rodent, often seen in Khunjerab’s meadows with whistling calls.</p>
+        <a onclick="showAnimalDetails('himalayan-marmot')">Learn More</a>
+      </div>
+      <div class="animal-card">
+        <img src="Images/American_pika.jpg" alt="Pika">
+        <h3>Pika</h3>
+        <p>Small mammal, thriving in Khunjerab’s rocky terrains and meadows.</p>
+        <a onclick="showAnimalDetails('pika')">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal" id="animalModal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <img id="modalImage" src="" alt="Animal">
+      <h3 id="modalTitle"></h3>
+      <p id="modalDescription"></p>
+    </div>
+  </div>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3>National Parks Info</h3>
+      <p>Project Of National Park Info</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Info Pages</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="parks.html">Parks</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Animals And Birds</h4>
+      <ul>
+        <li><a href="animals.html">Animals</a></li>
+        <li><a href="birds.html">Birds</a></li>
+        
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Explore Parks</h4>
+      <ul>
+        <li><a href="lalsuhanrapark.html">Lal Suhanra Park</a></li>
+        <li><a href="ayubpark.html">Ayub National Park</a></li>
+        <li><a href="kirtharpark.html">Kirthar National Park</a></li>
+        <li><a href="ayubiapark.html">Ayubia National Park</a></li>
+        <li><a href="khunjerabpark.html">Khunjerab National Park</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  <script>
+    const animalData = {
+      'snow-leopard': {
+        name: "Snow Leopard",
+        image: "Images/Snow-Leopard.jpg",
+        description: "Snow Leopards (Panthera uncia) are iconic and rare predators of Khunjerab National Park, thriving in high-altitude mountains. Masters of stealth, they hunt ibex and blue sheep, blending into rocky terrains with their spotted coats. Endangered due to habitat loss and poaching, Khunjerab’s conservation efforts are critical for their survival."
+      },
+      'marco-polo-sheep': {
+        name: "Marco Polo Sheep",
+        image: "Images/Marco Polo Sheep.jpg",
+        description: "Marco Polo Sheep (Ovis ammon polii) are the world’s largest wild sheep, found in Khunjerab’s high mountains. Their massive spiral horns and grazing habits in alpine meadows make them a key species. Vulnerable to hunting and habitat changes, Khunjerab’s protected status supports their conservation."
+      },
+      'himalayan-ibex': {
+        name: "Himalayan Ibex",
+        image: "Images/Himalyan ibex.jpg",
+        description: "Himalayan Ibex (Capra sibirica) are common in Khunjerab’s rocky cliffs, known for their long, curved horns. Agile climbers, they feed on sparse vegetation in small herds. Their populations face threats from climate change and competition, with Khunjerab’s conservation programs aiding their protection."
+      },
+      'blue-sheep': {
+        name: "Blue Sheep",
+        image: "Images/Blue Sheep.jpg",
+        description: "Blue Sheep (Pseudois nayaur), or Bharal, are important prey for snow leopards in Khunjerab’s alpine slopes. They graze on grasses and herbs, living in herds on steep terrains. Stable but impacted by predation and habitat shifts, Khunjerab’s efforts ensure their ecological balance."
+      },
+      'tibetan-wolf': {
+        name: "Tibetan Wolf",
+        image: "Images/Tibetanwolf.jpg",
+        description: "Tibetan Wolves (Canis lupus chanco) are high-altitude predators in Khunjerab, hunting in packs across rugged terrain. They prey on small mammals and livestock, leading to human-wildlife conflict. Endangered due to habitat loss, Khunjerab’s protected areas are vital for their conservation."
+      },
+      'lynx': {
+        name: "Lynx",
+        image: "Images/Canadian_Lynx.jpg",
+        description: "Lynx (Lynx lynx) are elusive wild cats in Khunjerab’s rugged landscapes, rarely seen due to their solitary nature. They hunt small mammals like pikas and marmots, using stealth and sharp senses. Threatened by habitat fragmentation, Khunjerab’s conservation efforts support their survival."
+      },
+      'red-fox': {
+        name: "Red Fox",
+        image: "Images/redfoxayubia.jpg",
+        description: "Red Foxes (Vulpes vulpes) are adaptable predators commonly sighted in Khunjerab’s varied ecosystems. With bushy tails and reddish fur, they hunt small mammals and birds. Their adaptability helps them thrive, but habitat competition is a concern, addressed by Khunjerab’s conservation initiatives."
+      },
+      'himalayan-marmot': {
+        name: "Himalayan Marmot",
+        image: "Images/Himalayan_Marmot.jpg",
+        description: "Himalayan Marmots (Marmota himalayana) are burrowing rodents often seen in Khunjerab’s meadows, known for their whistling calls. They feed on grasses and roots, hibernating in winter. Stable in the park, they face climate change impacts, with Khunjerab promoting their habitat preservation."
+      },
+      'pika': {
+        name: "Pika",
+        image: "Images/American_pika.jpg",
+        description: "Pikas (Ochotona spp.) are small mammals thriving in Khunjerab’s rocky terrains and meadows. They collect grasses for winter caches, living in colonies. Sensitive to warming climates, their populations are supported by Khunjerab’s conservation efforts to protect alpine ecosystems."
+      }
+    };
+
+    function showAnimalDetails(animalKey) {
+      const animal = animalData[animalKey];
+      document.getElementById('modalImage').src = animal.image;
+      document.getElementById('modalImage').alt = animal.name;
+      document.getElementById('modalTitle').textContent = animal.name;
+      document.getElementById('modalDescription').textContent = animal.description;
+      document.getElementById('animalModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('animalModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('animalModal');
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    };
+  </script>
+
+  <script>
+function toggleParksDropdown(event) 
+{
+  event.preventDefault();
+  const dropdown = event.target.closest('.dropdown');
+  dropdown.classList.toggle('open');
+}
+</script>
+
+<script>
+    function toggleMenu() 
+    {
+      const menu = document.getElementById("menu");
+      menu.classList.toggle("show");
+    }
+  </script>
+
+</body>
+</html>
